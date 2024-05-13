@@ -18,8 +18,6 @@ struct AppMain: App {
     @Environment(\.dismissWindow) var dismissWindow
     
     @State private var isLoading: Bool = false
-    @State private var isPlaying: Bool = false
-    @State private var isMuted: Bool = VideoSound.defaultMuted
     
     var body: some Scene {
         WindowGroup(id: "WelcomeWindow") {
@@ -43,7 +41,7 @@ struct AppMain: App {
         .windowResizability(.contentSize)
 
         ImmersiveSpace(id: "RaceTrackImmersiveView") {
-            RaceTrackImmersiveView(isPlaying: $isPlaying, isMuted: $isMuted, didAppear: {
+            RaceTrackImmersiveView(didAppear: {
                 log(message: "initializing scene", level: .info)
             }, didTapClose: {
                 Task {
