@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @ScaledMetric(relativeTo: .body) private var imageHeightTrifork = 22 // default height of body
-    @ScaledMetric(relativeTo: .body) private var imageHeightMirage = 32 // default height of body
+    @ScaledMetric(relativeTo: .body) private var imageHeightMHP = 21 // default height of body
+    @ScaledMetric(relativeTo: .body) private var imageHeightTrifork = 17 // default height of body
+    @ScaledMetric(relativeTo: .body) private var imageHeightMirage = 27 // default height of body
+    
     var isLoading: Bool
     var onTapNext: () -> Void
     
@@ -28,14 +30,21 @@ struct WelcomeView: View {
                         .foregroundColor(.white)
                         .font(Asset.Fonts.porscheRegular(size: 26))
                     
+                    Image("MHPLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: imageHeightMHP)
+                    
+                    Text("  and  ")
+                        .foregroundColor(.white)
+                        .font(Asset.Fonts.porscheRegular(size: 26))
+                    
                     Image("TriforkLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: imageHeightTrifork)
                     
-                    Text("  and  ")
-                        .foregroundColor(.white)
-                        .font(Asset.Fonts.porscheRegular(size: 26))
+                    Text("  ")
                     
                     Image("MirageInsightsLogo")
                         .resizable()

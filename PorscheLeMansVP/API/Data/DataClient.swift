@@ -14,7 +14,8 @@ public class DataClient {
     
     public var modelContainer: ModelContainer = {
         let schema = Schema([
-            RaceDataItem.self
+            RaceDataItem.self,
+            RaceContestantItem.self
         ])
         
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
@@ -30,6 +31,7 @@ public class DataClient {
     @MainActor
     public func deleteAll() {
         try? modelContainer.mainContext.delete(model: RaceDataItem.self)
+        try? modelContainer.mainContext.delete(model: RaceContestantItem.self)
     }
 
 }

@@ -18,10 +18,13 @@
 		BB9342722BF20BF30081D78C /* PorscheNext-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342692BF20BF30081D78C /* PorscheNext-Regular.otf */; };
 		BB9342742BF20CA40081D78C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342732BF20CA40081D78C /* Assets.swift */; };
 		BB9342762BF20F1B0081D78C /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342752BF20F1B0081D78C /* Materials.swift */; };
-		BB9342782BF211F50081D78C /* DataGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342772BF211F50081D78C /* DataGridView.swift */; };
+		BB9342782BF211F50081D78C /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342772BF211F50081D78C /* DashboardView.swift */; };
 		BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93427A2BF2124A0081D78C /* VideoPlayerViewModel.swift */; };
 		BB93427E2BF2124A0081D78C /* VideoPlayListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93427B2BF2124A0081D78C /* VideoPlayListItem.swift */; };
 		BB93427F2BF2124A0081D78C /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93427C2BF2124A0081D78C /* VideoPlayerView.swift */; };
+		BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342802BF237430081D78C /* RaceContestantItem.swift */; };
+		BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342832BF238880081D78C /* LeaderboardView.swift */; };
+		BB9342862BF239CB0081D78C /* DataClient+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -49,10 +52,13 @@
 		BB9342692BF20BF30081D78C /* PorscheNext-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-Regular.otf"; sourceTree = "<group>"; };
 		BB9342732BF20CA40081D78C /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		BB9342752BF20F1B0081D78C /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
-		BB9342772BF211F50081D78C /* DataGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGridView.swift; sourceTree = "<group>"; };
+		BB9342772BF211F50081D78C /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		BB93427A2BF2124A0081D78C /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		BB93427B2BF2124A0081D78C /* VideoPlayListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayListItem.swift; sourceTree = "<group>"; };
 		BB93427C2BF2124A0081D78C /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		BB9342802BF237430081D78C /* RaceContestantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceContestantItem.swift; sourceTree = "<group>"; };
+		BB9342832BF238880081D78C /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClient+Dummy.swift"; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -116,6 +122,22 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		BB9342822BF238780081D78C /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				BB9342832BF238880081D78C /* LeaderboardView.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		BB9342872BF3389D0081D78C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BB98C6462BF204E000C17681 /* Data */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		BB98C6252BF204B300C17681 = {
 			isa = PBXGroup;
 			children = (
@@ -136,10 +158,10 @@
 		BB98C6302BF204B300C17681 /* PorscheLeMansVP */ = {
 			isa = PBXGroup;
 			children = (
+				BB9342872BF3389D0081D78C /* API */,
 				BB98C65A2BF20B0300C17681 /* Resources */,
 				BB98C6482BF204F200C17681 /* Views */,
 				BB98C6472BF204EC00C17681 /* Helpers */,
-				BB98C6462BF204E000C17681 /* Data */,
 				BB98C6352BF204B300C17681 /* AppMain.swift */,
 				BB98C6492BF2050F00C17681 /* AppDelegate.swift */,
 				BB98C6402BF204B400C17681 /* Info.plist */,
@@ -169,6 +191,7 @@
 			children = (
 				BB98C6552BF2069800C17681 /* Models */,
 				BB98C6532BF2063C00C17681 /* DataClient.swift */,
+				BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -188,10 +211,11 @@
 		BB98C6482BF204F200C17681 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BB9342822BF238780081D78C /* Leaderboard */,
 				BB9342792BF2124A0081D78C /* VideoPlayer */,
 				BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */,
 				BB98C6582BF206E900C17681 /* WelcomeView.swift */,
-				BB9342772BF211F50081D78C /* DataGridView.swift */,
+				BB9342772BF211F50081D78C /* DashboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				BB98C6562BF206B600C17681 /* RaceDataItem.swift */,
+				BB9342802BF237430081D78C /* RaceContestantItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -296,14 +321,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9342862BF239CB0081D78C /* DataClient+Dummy.swift in Sources */,
 				BB9342762BF20F1B0081D78C /* Materials.swift in Sources */,
 				BB98C6572BF206B600C17681 /* RaceDataItem.swift in Sources */,
 				BB9342742BF20CA40081D78C /* Assets.swift in Sources */,
 				BB98C6512BF205F700C17681 /* Collection+Safe.swift in Sources */,
+				BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,
 				BB98C6522BF205F700C17681 /* Loggable.swift in Sources */,
-				BB9342782BF211F50081D78C /* DataGridView.swift in Sources */,
+				BB9342782BF211F50081D78C /* DashboardView.swift in Sources */,
 				BB93427E2BF2124A0081D78C /* VideoPlayListItem.swift in Sources */,
+				BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */,
 				BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DataGridView.swift
+//  DashboardView.swift
 //  PorscheLeMansVP
 //
 //  Created by Thomas Fekete Christensen on 13/05/2024.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DataGridView: View {
-    private let gridItemLayout = [GridItem(.fixed(780)), GridItem(.fixed(2000)), GridItem(.fixed(1200))]
+struct DashboardView: View {
+    private let gridItemLayout = [GridItem(.fixed(780)), GridItem(.fixed(2000)), GridItem(.fixed(780))]
     private let gridItemLayoutSpacing = 120.0
 
     @State private var videoIsReady: Bool = false
@@ -20,9 +20,10 @@ struct DataGridView: View {
         LazyVGrid(columns: gridItemLayout) {
             VStack(spacing: gridItemLayoutSpacing) {
                 HStack {
-                    Text("LEFT ????????")
+                    LeaderboardView()
                 }
                 .frame(width: 780, height: 1200)
+                .glassBackgroundEffect()
             }
             .cornerRadius(22)
             .rotation3DEffect(.degrees(20), axis: (x: 0, y: 1, z: 0), anchor: .center)
@@ -30,9 +31,10 @@ struct DataGridView: View {
             
             VStack(spacing: gridItemLayoutSpacing) {
                 VStack(spacing: gridItemLayoutSpacing) {
-                    VideoPlayerView(viewModel: videoViewModel, isMuted: isMuted, isPlaying: true)
+                    VideoPlayerView(viewModel: videoViewModel, isMuted: isMuted)
                 }
                 .frame(width: 2000, height: 1200)
+                .glassBackgroundEffect()
             }
             .cornerRadius(22)
             
@@ -40,7 +42,8 @@ struct DataGridView: View {
                 VStack {
                     Text("RIGHT ????????")
                 }
-                .frame(width: 1200, height: 1200)
+                .frame(width: 780, height: 1200)
+                .glassBackgroundEffect()
             }
             .cornerRadius(22)
             .rotation3DEffect(.degrees(-20), axis: (x: 0, y: 1, z: 0), anchor: .center)

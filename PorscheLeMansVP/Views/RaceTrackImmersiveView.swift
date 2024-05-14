@@ -24,10 +24,10 @@ struct RaceTrackImmersiveView: View {
     
     private let trackRotation: Float = 1.18
     private let trackScale: Float = 1/8
-    private let trackHorizontalPosition: Float = -0.35
+    private let trackHorizontalPosition: Float = -0.32
     
     init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
-        self.mainContainer.position = SIMD3(x: 0, y: 1, z: -1.0)
+        self.mainContainer.position = SIMD3(x: 0.1, y: 1, z: -1.0)
 
         self.didAppear = didAppear
         self.didTapClose = didTapClose
@@ -53,10 +53,10 @@ struct RaceTrackImmersiveView: View {
                 trackContainer.addChild(track)
             }
             
-            if let grid = attachments.entity(for: "DataGrid") {
-                grid.name = "DataGrid"
-                grid.position = [0.0, 0.5, -0.8]
-                mainContainer.addChild(grid)
+            if let dashboard = attachments.entity(for: "Dashboard") {
+                dashboard.name = "Dashboard"
+                dashboard.position = [0.1, 0.5, -0.8]
+                mainContainer.addChild(dashboard)
             }
             
             content.add(mainContainer)
@@ -65,8 +65,8 @@ struct RaceTrackImmersiveView: View {
                 didInitializedSceneEntity = true
             }
         } attachments: {
-            Attachment(id: "DataGrid") {
-                DataGridView(videoViewModel: videoViewModel, isMuted: $isMuted)
+            Attachment(id: "Dashboard") {
+                DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted)
             }
         }
         .onAppear() {

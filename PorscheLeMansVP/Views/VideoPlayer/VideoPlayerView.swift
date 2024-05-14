@@ -16,7 +16,6 @@ struct VideoPlayerView: View {
     
     let viewModel: VideoPlayerViewModel
     let isMuted: Bool
-    let isPlaying: Bool
     
     @State private var player: AVPlayer!
     @State private var statusObserver: NSKeyValueObservation?
@@ -61,43 +60,18 @@ struct VideoPlayerView: View {
                 statusObserver = player.currentItem?.observe(\.status, options:  [.new, .old], changeHandler: { item, _ in
                     if item.status == .readyToPlay {
                         // did Change Status To Ready
-                        play()
+                        player.play()
                     }
                 })
             }
         }
-        //.modifier(DarkGlasBackgroundEffect())
         .onChange(of: isMuted) {
             mute()
-        }
-        .onChange(of: isPlaying) {
-            play()
-        }
-        .onChange(of: viewModel.videoUrl) {
-            let item = viewModel.videoUrl.map {
-                let asset = AVURLAsset(url: $0)
-                return AVPlayerItem(asset: asset)
-            }
-            player.replaceCurrentItem(with: item)
-            
-            if let currentTime = viewModel.currentTime, currentTime.isValid {
-                player.seek(to: currentTime) { ready in
-                    play()
-                }                
-                viewModel.currentTime = nil
-            }
-        }     
+        }   
     }
 
     private func mute() {
         player.isMuted = isMuted
     }
-    
-    private func play() {
-        if isPlaying {
-            player.play()
-        } else {
-            player.pause()
-        }
-    }
+
 }
