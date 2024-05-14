@@ -10,7 +10,7 @@ import SwiftData
 
 extension DataClient {
     
-    @MainActor 
+    @MainActor
     func fillLeaderboard() {
         var items: [RaceContestantItem] = []
         items.append(RaceContestantItem(index: 1, position: 1, name: "Rico Laursen", initials: "RLA", colorCode: "", country: "DK", carId: "a1", time: 0, inPit: false, outOfTheRace: false))
@@ -41,6 +41,28 @@ extension DataClient {
             
             modelContainer.mainContext.insert(item)
         }
+    }
+    
+    @MainActor
+    func writeTicker(productId: String, price: String) {
+        let predicate = #Predicate<TickerItem> { $0.productId == productId }
+        let descriptor = FetchDescriptor<TickerItem>(predicate: predicate)
+        if let item = try? modelContainer.mainContext.fetch(descriptor).first {
+            item.price = price
+            modelContainer.mainContext.insert(item)
+        } else {
+            let item = TickerItem(productId: productId, price: price)
+            modelContainer.mainContext.insert(item)
+        }
+    }
+    
+    @MainActor
+    func getTickers() -> [TickerItem] {
+        let sortDescriptor = [SortDescriptor(\TickerItem.productId)]
+        let descriptor = FetchDescriptor<TickerItem>(sortBy: sortDescriptor)
+        let items = try? modelContainer.mainContext.fetch(descriptor)
+
+        return items ?? []
     }
     
 }

@@ -40,7 +40,7 @@ struct DashboardView: View {
             
             VStack(spacing: gridItemLayoutSpacing) {
                 VStack {
-                    Text("RIGHT ????????")
+                    TickerView()
                 }
                 .frame(width: 780, height: 1200)
                 .glassBackgroundEffect()

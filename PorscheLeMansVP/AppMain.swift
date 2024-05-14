@@ -11,6 +11,8 @@ import SwiftUI
 struct AppMain: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    @ObservedObject var webSocketClient = WebSocketClient()
+    
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
@@ -24,6 +26,11 @@ struct AppMain: App {
             VStack {
                 WelcomeView(isLoading: isLoading) {
                     isLoading = true
+                    
+                    DataClient.shared.deleteAll()
+                    
+                    webSocketClient.connect()
+                    
                     Task {
                         await openImmersiveSpace(id: "RaceTrackImmersiveView")
                     }
@@ -48,6 +55,9 @@ struct AppMain: App {
                     openWindow(id: "WelcomeWindow")
                     await dismissImmersiveSpace()
                 }
+            }, didEnterBackground: {
+                DataClient.shared.deleteAll()
+                webSocketClient.disconnect()
             }, didLoadSceneEntity: {
                 isLoading = false
                 dismissWindow(id: "WelcomeWindow")

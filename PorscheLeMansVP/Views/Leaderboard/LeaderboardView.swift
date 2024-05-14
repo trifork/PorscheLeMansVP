@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+import CoreData
 
 struct LeaderboardView: View {
     
@@ -53,7 +55,9 @@ struct LeaderboardView: View {
             DataClient.shared.fillLeaderboard() // Prefill data
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name.NSManagedObjectContextObjectsDidChange), perform: { notification in
-            leaderboard = DataClient.shared.getLeaderboard()
+            if DataClient.shared.isModified(of: RaceContestantItem.self, notification: notification) {
+                leaderboard = DataClient.shared.getLeaderboard()
+            }
         })
     }
 

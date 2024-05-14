@@ -10,6 +10,8 @@ import RealityKit
 import RealityKitContent
 
 struct RaceTrackImmersiveView: View {
+    @Environment(\.scenePhase) var scenePhase
+    
     @State private var isMuted: Bool = VideoSound.defaultMuted
     
     @State private var didInitializedSceneEntity: Bool = false
@@ -17,6 +19,7 @@ struct RaceTrackImmersiveView: View {
     
     private var didAppear: () -> Void
     private var didTapClose: () -> Void
+    private var didEnterBackground: () -> Void
     private var didLoadSceneEntity: () -> Void
     
     private var mainContainer = Entity()
@@ -26,11 +29,12 @@ struct RaceTrackImmersiveView: View {
     private let trackScale: Float = 1/8
     private let trackHorizontalPosition: Float = -0.32
     
-    init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
+    init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didEnterBackground: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
         self.mainContainer.position = SIMD3(x: 0.1, y: 1, z: -1.0)
 
         self.didAppear = didAppear
         self.didTapClose = didTapClose
+        self.didEnterBackground = didEnterBackground
         self.didLoadSceneEntity = didLoadSceneEntity
         
         videoViewModel.configure(videoUrl: videoViewModel.selectedVideo)
@@ -74,6 +78,14 @@ struct RaceTrackImmersiveView: View {
         }
         .onChange(of: didInitializedSceneEntity) { oldValue, newValue in
             didLoadSceneEntity()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            switch newPhase {
+            case .background:
+                didEnterBackground()
+                
+            default: break
+            }
         }
     }
 }
