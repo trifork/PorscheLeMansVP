@@ -31,7 +31,7 @@ struct TempDataView: View {
                 //TitleView(title: "Time :", value: "\(currentTime?.toString(format: "HH:mm:ss") ?? "0")")
                 TitleView(title: "Duration :", value: "\(-(duration ?? 0)) sec.")
                 TitleView(title: "Speed :", value: "\(Int(currentSpeed ?? 0.0)) km/h")
-                TitleView(title: "RPM :", value: "\(String(format: "%.0f", ((currentRpm ?? 0.0) * 10000))) rpm")
+                TitleView(title: "RPM :", value: "\(String(format: "%.0f", currentRpm ?? 0.0)) rpm")
                 TitleView(title: "Gear :", value: "\(String(format: "%.0f", currentGear ?? 0.0))")
             }
             
