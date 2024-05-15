@@ -23,6 +23,7 @@ struct TempDataView: View {
     @State private var currentGForceY: Double?
     @State private var currentBrake: Double?
     @State private var currentThrottle: Double?
+    @State private var currentFuel: Double?
     
     public var body: some View {
         HStack {
@@ -40,6 +41,7 @@ struct TempDataView: View {
                 TitleView(title: "GFrce X/Y :", value: "\(String(format: "%.1f", currentGForceX ?? 0.0)) / \(String(format: "%.1f", currentGForceY ?? 0.0))")
                 TitleView(title: "Brake :", value: "\(String(format: "%.1f", currentBrake ?? 0.0))")
                 TitleView(title: "Throttle :", value: "\(String(format: "%.1f", currentThrottle ?? 0.0))")
+                TitleView(title: "Fuel :", value: "\(String(format: "%.1f", currentFuel ?? 0.0))")
             }
             
         }
@@ -61,6 +63,7 @@ struct TempDataView: View {
             currentGForceY = item?.gLong
             currentBrake = item?.pBrakeF
             currentThrottle = item?.rThrottlePedal
+            currentFuel = item?.m_fuel
         }
         .padding(20)
     }

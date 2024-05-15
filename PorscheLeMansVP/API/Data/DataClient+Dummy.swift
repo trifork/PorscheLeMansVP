@@ -12,10 +12,19 @@ extension DataClient {
     
     @MainActor
     func fillLeaderboard() {
-        var items: [RaceContestantItem] = []
-        items.append(RaceContestantItem(index: 1, position: 1, name: "Rico Laursen", initials: "RLA", colorCode: "", country: "DK", carId: "a1", time: 0, inPit: false, outOfTheRace: false))
-        items.append(RaceContestantItem(index: 2, position: 2, name: "Jim Andersen", initials: "JAN", colorCode: "", country: "UK", carId: "b2", time: 0.645, inPit: false, outOfTheRace: false))
-        items.append(RaceContestantItem(index: 3, position: 3, name: "Marius Folloingrish", initials: "MAF", colorCode: "", country: "SP", carId: "c3", time: 1.298, inPit: false, outOfTheRace: false))
+        let items = [
+            RaceContestantItem(index: 1, position: 1, name: "T. Fekete", initials: "TFC", color: "FFFFFF", country: "dk", carId: "Porsche", time: 0, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 2, position: 2, name: "S. Zukanovic", initials: "SZU", color: "2941CD", country: "dk", carId: "Porsche", time: 0.1734, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 3, position: 3, name: "T. Miyazono", initials: "TMI", color: "00C0B2", country: "dm", carId: "Audi", time: 1.1735, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 4, position: 4, name: "J. Serrano", initials: "JSE", color: "C8211A", country: "at", carId: "Ferrari", time: 1.3737, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 5, position: 5, name: "L. Kringelbach", initials: "LKR", color: "FFFFFF", country: "dk", carId: "BMW", time: 1.7739, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 6, position: 6, name: "P. Blazsan", initials: "PBL", color: "E88A32", country: "au", carId: "Tesla", time: 2.1740, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 7, position: 7, name: "C. Lopez", initials: "CLO", color: "2941CD", country: "ec", carId: "Volkswagen", time: 2.4741, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 8, position: 8, name: "L. James", initials: "LJA", color: "EAEF4C", country: "ee", carId: "Citroen", time: 3.8743, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 9, position: 9, name: "R. Bonelli", initials: "RBO", color: "B29F6C", country: "jp", carId: "Skoda", time: 4.1744, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 10, position: 10, name: "V. Gallo", initials: "VGA", color: "4199DD", country: "es", carId: "Ford", time: 4.2745, inPit: false, outOfTheRace: false),
+            RaceContestantItem(index: 11, position: 11, name: "G. Mangano", initials: "GMA", color: "881415", country: "ca", carId: "Fiat", time: 4.1748, inPit: false, outOfTheRace: false)
+        ]
         
         for item in items {
             self.modelContainer.mainContext.insert(item)

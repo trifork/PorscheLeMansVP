@@ -37,4 +37,10 @@ public enum Asset {
             return Font.custom("DigitalNumbers-Regular", fixedSize: size)
         }
     }    
+    
+    public enum Images {
+        public static func byName(_ name: String) -> Image {
+            return Image(name, bundle: .main)
+        }
+    }
 }

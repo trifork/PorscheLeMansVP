@@ -11,24 +11,27 @@ import CoreData
 
 struct LeaderboardView: View {
     
-    @State private var updateTimer = Timer.publish(every: 1.01, on: .main, in: .common).autoconnect()
+    @State private var updateTimer = Timer.publish(every: 2.01, on: .main, in: .common).autoconnect()
     @State private var leaderboard: [RaceContestantItem] = []
     
     var body: some View {
         VStack {
-            List(leaderboard) { item in
+            List(Array(leaderboard.enumerated()), id: \.1.index) { index, item in
                 HStack {
-                    Text("\(item.position)")
+                    Text("\(index + 1)")
                         .font(Asset.Fonts.porscheRegular(size: 26))
                         .frame(width: 44, height: 44)
                         .background(.white)
                         .foregroundColor(.black)
                         .cornerRadius(8)
                     
-                    Color(.red)
+                    Asset.Images.byName("icnFlag_\(item.country)")
+                        .frame(alignment: .leading)
+                    
+                    Color(hex: "\(item.color)")
                         .frame(width: 4, height: 44)
                     
-                    Text(item.initials)
+                    Text(item.name)
                         .font(Asset.Fonts.porscheBold(size: 26))
                         .foregroundColor(.white)
                     
@@ -50,6 +53,8 @@ struct LeaderboardView: View {
         .onReceive(updateTimer) { _ in
             DataClient.shared.updateLeaderboard(for: 2)
             DataClient.shared.updateLeaderboard(for: 3)
+            DataClient.shared.updateLeaderboard(for: 6)
+            DataClient.shared.updateLeaderboard(for: 11)
         }
         .onAppear() {
             DataClient.shared.fillLeaderboard() // Prefill data

@@ -39,6 +39,7 @@
 		BB9342A22BF4AEE30081D78C /* TempDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A12BF4AEE30081D78C /* TempDataView.swift */; };
 		BB9342A52BF4B2350081D78C /* VP_LeMans_Lap2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */; };
 		BB9342A72BF4B3880081D78C /* TimeInterval+Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */; };
+		BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A82BF4C2490081D78C /* Color+hex.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -87,6 +88,7 @@
 		BB9342A12BF4AEE30081D78C /* TempDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDataView.swift; sourceTree = "<group>"; };
 		BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = VP_LeMans_Lap2.mp4; sourceTree = "<group>"; };
 		BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Calc.swift"; sourceTree = "<group>"; };
+		BB9342A82BF4C2490081D78C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				BB9342752BF20F1B0081D78C /* Materials.swift */,
 				BB93429F2BF4A26F0081D78C /* Date+String.swift */,
 				BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */,
+				BB9342A82BF4C2490081D78C /* Color+hex.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,
+				BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */,
 				BB9342932BF392580081D78C /* TempSpeedometerView.swift in Sources */,
 				BB98C6542BF2063C00C17681 /* DataClient.swift in Sources */,
 				BB98C6362BF204B300C17681 /* AppMain.swift in Sources */,
