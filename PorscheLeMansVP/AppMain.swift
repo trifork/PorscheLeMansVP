@@ -27,12 +27,20 @@ struct AppMain: App {
                 WelcomeView(isLoading: isLoading) {
                     isLoading = true
                     
-                    DataClient.shared.deleteAll()
-                    
-                    webSocketClient.connect()
-                    
                     Task {
-                        await openImmersiveSpace(id: "RaceTrackImmersiveView")
+                        DataClient.shared.deleteAll()
+
+                        await CSVClient.shared.prefill {
+                            Task {
+                                
+                                webSocketClient.connect()
+                                
+                                await openImmersiveSpace(id: "RaceTrackImmersiveView")
+                            }
+                        } failure: { message in
+                            log(message: message, level: .error)
+                            isLoading = false
+                        }
                     }
                 }
                 .disabled(isLoading)

@@ -66,3 +66,41 @@ extension DataClient {
     }
     
 }
+
+
+extension DataClient {
+    
+    @MainActor
+    func fillSpeedData() {
+        let data: [Double] = [0]
+        let item = RaceDataItem(channelId: "vCar", acqType: "", carId: "5bada085-67ef-43bb-bdcb-81ba93ee9fee", frequency: 2, data: data, nSamples: 1)
+        
+        self.modelContainer.mainContext.insert(item)
+    }
+    
+    @MainActor
+    func updateSpeedData() {
+        let predicate = #Predicate<RaceDataItem> { $0.channelId == "vCar" }
+        let descriptor = FetchDescriptor<RaceDataItem>(predicate: predicate)
+        if let item = try? modelContainer.mainContext.fetch(descriptor).first {
+            
+            item.data.append(Double.random(in: 121...187))
+            
+            modelContainer.mainContext.insert(item)
+        }
+    }
+    
+    @MainActor
+    func getCurrentSpeed() -> Double? {
+        let predicate = #Predicate<RaceDataItem> { $0.channelId == "vCar" }
+        let descriptor = FetchDescriptor<RaceDataItem>(predicate: predicate)
+        if let item = try? modelContainer.mainContext.fetch(descriptor).first {
+            return item.data.last
+        }
+
+        return nil
+    }
+    
+    
+    
+}

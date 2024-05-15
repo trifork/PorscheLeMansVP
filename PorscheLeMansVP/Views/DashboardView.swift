@@ -41,6 +41,8 @@ struct DashboardView: View {
             VStack(spacing: gridItemLayoutSpacing) {
                 VStack {
                     TickerView()
+                    
+                    TempSpeedometerView()
                 }
                 .frame(width: 780, height: 1200)
                 .glassBackgroundEffect()
