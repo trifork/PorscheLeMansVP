@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TempSpeedometerView: View {
     
-    @State private var indexTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State private var indexTimer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
     @State private var index: Int = 0
     
     @State private var speed: Double?

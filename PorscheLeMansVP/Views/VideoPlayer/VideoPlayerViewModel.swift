@@ -25,7 +25,8 @@ import CoreMedia
     
     public var availableVideos : [VideoPlayListItem]? {
         [
-            VideoPlayListItem(url: URL(string: "https://drlive01hls.akamaized.net/hls/live/2014185/drlive01/master2000.m3u8")!, description: "#1"),
+            //VideoPlayListItem(url: URL(string: "https://drlive01hls.akamaized.net/hls/live/2014185/drlive01/master2000.m3u8")!, description: "#1"),
+            VideoPlayListItem(url: Bundle.main.url(forResource: "VP_LeMans_Lap2", withExtension: "mp4")!, description: "#1")
         ]
     }
     

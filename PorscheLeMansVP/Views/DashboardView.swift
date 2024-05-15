@@ -43,6 +43,8 @@ struct DashboardView: View {
                     TickerView()
                     
                     TempSpeedometerView()
+                    
+                    TempDataView()
                 }
                 .frame(width: 780, height: 1200)
                 .glassBackgroundEffect()
