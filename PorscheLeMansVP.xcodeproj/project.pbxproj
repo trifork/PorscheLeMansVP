@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61CFF8772BF34A2600936B88 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8762BF34A2600936B88 /* CarViewModel.swift */; };
+		61CFF87B2BF360A200936B88 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */; };
+		61CFF8802BF36F1C00936B88 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */; };
+		61CFF8822BF3705F00936B88 /* LineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8812BF3705F00936B88 /* LineEntity.swift */; };
+		61CFF8842BF3798700936B88 /* TrackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8832BF3798700936B88 /* TrackEntity.swift */; };
+		61CFF8882BF489E600936B88 /* CarsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8872BF489E600936B88 /* CarsMockData.swift */; };
 		BB93426A2BF20BF30081D78C /* DigitalNumbers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */; };
 		BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */; };
 		BB93426C2BF20BF30081D78C /* PorscheNext-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */; };
@@ -41,6 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61CFF8762BF34A2600936B88 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
+		61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		61CFF8812BF3705F00936B88 /* LineEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEntity.swift; sourceTree = "<group>"; };
+		61CFF8832BF3798700936B88 /* TrackEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEntity.swift; sourceTree = "<group>"; };
+		61CFF8872BF489E600936B88 /* CarsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsMockData.swift; sourceTree = "<group>"; };
 		BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigitalNumbers-Regular.ttf"; sourceTree = "<group>"; };
 		BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-SemiBold.otf"; sourceTree = "<group>"; };
 		BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -88,6 +100,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61CFF8752BF34A0F00936B88 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				61CFF8762BF34A2600936B88 /* CarViewModel.swift */,
+				61CFF8872BF489E600936B88 /* CarsMockData.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
+		61CFF87C2BF36E7A00936B88 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */,
+				61CFF8832BF3798700936B88 /* TrackEntity.swift */,
+				61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
 		BB93425F2BF20BD30081D78C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +230,7 @@
 		BB98C6472BF204EC00C17681 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				61CFF8812BF3705F00936B88 /* LineEntity.swift */,
 				BB98C64F2BF205F700C17681 /* Collection+Safe.swift */,
 				BB98C6502BF205F700C17681 /* Loggable.swift */,
 				BB98C64B2BF205C400C17681 /* VideoSound.swift */,
@@ -211,6 +243,8 @@
 		BB98C6482BF204F200C17681 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61CFF87C2BF36E7A00936B88 /* Track */,
+				61CFF8752BF34A0F00936B88 /* Car */,
 				BB9342822BF238780081D78C /* Leaderboard */,
 				BB9342792BF2124A0081D78C /* VideoPlayer */,
 				BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */,
@@ -328,10 +362,15 @@
 				BB98C6512BF205F700C17681 /* Collection+Safe.swift in Sources */,
 				BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,
+				61CFF8772BF34A2600936B88 /* CarViewModel.swift in Sources */,
+				61CFF8822BF3705F00936B88 /* LineEntity.swift in Sources */,
+				61CFF8802BF36F1C00936B88 /* TrackViewModel.swift in Sources */,
 				BB98C6522BF205F700C17681 /* Loggable.swift in Sources */,
 				BB9342782BF211F50081D78C /* DashboardView.swift in Sources */,
+				61CFF87B2BF360A200936B88 /* CoordinateConverter.swift in Sources */,
 				BB93427E2BF2124A0081D78C /* VideoPlayListItem.swift in Sources */,
 				BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */,
+				61CFF8882BF489E600936B88 /* CarsMockData.swift in Sources */,
 				BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,
@@ -339,6 +378,7 @@
 				BB98C6362BF204B300C17681 /* AppMain.swift in Sources */,
 				BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */,
 				BB98C64C2BF205C400C17681 /* VideoSound.swift in Sources */,
+				61CFF8842BF3798700936B88 /* TrackEntity.swift in Sources */,
 				BB93427F2BF2124A0081D78C /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
