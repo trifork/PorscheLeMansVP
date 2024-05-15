@@ -31,7 +31,7 @@ struct RaceTrackImmersiveView: View {
     private let trackScale: Float = 1/8
     private let trackHorizontalPosition: Float = -0.32
     
-    @State private var moveCarTimer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State private var moveCarTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     
     
     init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
@@ -74,11 +74,24 @@ struct RaceTrackImmersiveView: View {
         } attachments: {
             Attachment(id: "Dashboard") {
                 DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted)
-                Button {
-                    print("Remove car 1")
-                } label: {
-                    Text("Remove car 1")
+                
+                //////////////// DEBUG COLLISIONS ///////////////////
+                HStack {
+                    ForEach(TrackEntity.shared.cars()) { car in
+                        Button {
+                            TrackEntity.shared.removeCarFromTrack(id: car.id)
+                        } label: {
+                            Text(car.visible ? "Hide car" : "Show car")
+                        }
+                    }
                 }
+                
+                Button {
+                    TrackEntity.shared.addNewCarToTrack()
+                } label: {
+                    Text("Add new car")
+                }
+                //////////////// DEBUG COLLISIONS ///////////////////
             }
         }
         .onAppear() {

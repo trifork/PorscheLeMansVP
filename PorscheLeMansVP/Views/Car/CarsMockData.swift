@@ -9,12 +9,33 @@ import Foundation
 import RealityKit
 import RealityKitContent
 
-public struct Car {
-    public var id: String
+public class Car: Identifiable {
+    public var id = UUID()
     public var visible:Bool
     public var entity: ModelEntity
     public var currentLocation: ReferenceLocation
     public var referenceLocation: [ReferenceLocation]
+    public var currentIndex: Int
+    
+    init(visible: Bool, entity: ModelEntity, currentLocation: ReferenceLocation, referenceLocation: [ReferenceLocation], currentIndex: Int = 0) {
+        self.visible = visible
+        self.entity = entity
+        self.currentLocation = currentLocation
+        self.referenceLocation = referenceLocation
+        self.currentIndex = currentIndex
+    }
+    
+    public func getReferenceLocation() -> ReferenceLocation {
+        if self.currentIndex < referenceLocation.count {
+            let referenceLocation = self.referenceLocation[self.currentIndex]
+            self.currentIndex += 1
+            return referenceLocation
+        } else {
+            let referenceLocation = self.referenceLocation[0]
+            self.currentIndex = 0
+            return referenceLocation
+        }
+    }
 }
 
 @Observable public final class CarsMockData {
@@ -25,11 +46,16 @@ public struct Car {
     public func cars() -> [Car] {
         let referenceLocation = referenceLocationCar1()
         
-        let car1 = Car(id: "1", visible: true, entity: carViewModel.createNewCar(color: .red, id: "1"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
-        let car2 = Car(id: "2", visible: true, entity: carViewModel.createNewCar(color: .blue, id: "2"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
-        let car3 = Car(id: "3", visible: true, entity: carViewModel.createNewCar(color: .green, id: "3"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
+        let car1 = Car(visible: true, entity: carViewModel.createNewCar(color: .red, id: "1"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
+        //let car2 = Car(visible: true, entity: carViewModel.createNewCar(color: .blue, id: "2"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
+        //let car3 = Car(visible: true, entity: carViewModel.createNewCar(color: .green, id: "3"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
         
-        return [car1, car2, car3]
+        return [car1]
+    }
+    
+    public func newCar() -> Car {
+        let referenceLocation = referenceLocationCar1()
+        return Car( visible: true, entity: carViewModel.createNewCar(color: .purple, id: "5"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
     }
     
     private func referenceLocationCar1() -> [ReferenceLocation] {

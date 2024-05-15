@@ -18,16 +18,12 @@ final class TrackEntity {
     private let trackViewModel = TrackViewModel()
     private let carViewModel = CarViewModel()
     
-    public var currentCarLocationIndex = 0
-    
     @MainActor
     public func entity() async throws -> Entity {
         do {
             trackEntity = try await Entity(named: trackViewModel.trackName, in: realityKitContentBundle)
             trackEntity.name = "TrackEntity"
-            
-            //trackEntity.transform.rotation = simd_quatf(angle: trackViewModel.trackRotation, axis: SIMD3<Float>(0,1,0))
-            // trackEntity.transform.scale *= trackViewModel.trackScale
+            trackContainer.addChild(trackEntity)
             
             // Add lighting
             if trackViewModel.addLighting {
@@ -75,7 +71,7 @@ final class TrackEntity {
             }
             
             // Add track and cars to main container
-            mainContainer.addChild(trackEntity)
+            mainContainer.addChild(trackContainer)
             mainContainer.addChild(carsContainer)
             
             return mainContainer
@@ -85,15 +81,17 @@ final class TrackEntity {
         }
     }
     
-    public func updateCarPosition() {
+    public func updateCarPosition() {        
         for car in carViewModel.cars {
-            let referenceLocation = car.referenceLocation[currentCarLocationIndex]
+            let referenceLocation = car.getReferenceLocation()
             let currentLocation = car.currentLocation
             let latitude = referenceLocation.latitude
             let longitude = referenceLocation.longitude
-            // let visible = car.visible
+       
+            // show or hide a car
+            car.entity.isEnabled = car.visible
             
-            if currentLocation.index != currentCarLocationIndex {
+            if currentLocation.index != car.currentIndex {
                 if currentLocation.index > 0 {
                     let currentGPSLocation = CLLocation(latitude: latitude, longitude: longitude)
                     let distance = currentGPSLocation.distance(from: CLLocation(latitude: referenceLocation.latitude, longitude: referenceLocation.longitude))
@@ -106,18 +104,18 @@ final class TrackEntity {
             }
             
             let trackCoordinate = CoordinateConverter.convert(latitude: latitude, longitude: longitude, referenceLocation: trackViewModel.trackReferenceLocation, xFactor: trackViewModel.xFactor, zFactor: trackViewModel.zFactor)
-            let currentCarPosition = carsContainer.position
+            let currentCarPosition = car.entity.position
             
             let fromRayCastPosition = SIMD3<Float>(x: trackCoordinate.x, y: 0.5, z: trackCoordinate.z)
-            let toRayCastPosition = SIMD3<Float>(x: trackCoordinate.x, y: -0.3, z: trackCoordinate.z)
+            let toRayCastPosition = SIMD3<Float>(x: trackCoordinate.x, y: -0.5, z: trackCoordinate.z)
             
             var carYPos: Float = currentCarPosition.y // Keep previous y, if no tarmac is detected
             
             if trackViewModel.debugMode {
                 //////////////// DEBUG COLLISIONS ///////////////////
-                let fromShapeEntity = ModelEntity(mesh: trackViewModel.trackCollisionDetectionMesh, materials: [SimpleMaterial(color: .blue, isMetallic: false)])
+                let fromShapeEntity = ModelEntity(mesh: trackViewModel.trackCollisionDetectionMesh, materials: [SimpleMaterial(color: .yellow, isMetallic: false)])
                 trackContainer.addChild(fromShapeEntity)
-                let toShapeEntity = ModelEntity(mesh: trackViewModel.trackCollisionDetectionMesh, materials: [SimpleMaterial(color: .green, isMetallic: false)])
+                let toShapeEntity = ModelEntity(mesh: trackViewModel.trackCollisionDetectionMesh, materials: [SimpleMaterial(color: .yellow, isMetallic: false)])
                 trackContainer.addChild(toShapeEntity)
                 fromShapeEntity.position = fromRayCastPosition
                 toShapeEntity.position = toRayCastPosition
@@ -129,7 +127,7 @@ final class TrackEntity {
                 if let collision = collisions.first {
                     if trackViewModel.debugMode {
                         //////////////// DEBUG COLLISIONS ///////////////////
-                        let color: UIColor = collisions.count > 1 ? .red : .cyan
+                        let color: UIColor = collisions.count > 1 ? .red : .green
                         let collisionShape = ModelEntity(mesh: trackViewModel.trackCollisionDetectionMesh, materials: [SimpleMaterial(color: color, isMetallic: false)])
                         collisionShape.position = collision.position
                         trackContainer.addChild(collisionShape)
@@ -140,7 +138,7 @@ final class TrackEntity {
             }
             
             // Set car position and orientation animated
-            var carTransform = carsContainer.transform
+            var carTransform = car.entity.transform
             
             let previousLapLocation: SIMD3<Float> = carTransform.translation
             let currentLapLocation: SIMD3<Float> = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
@@ -148,8 +146,26 @@ final class TrackEntity {
             if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
                 carTransform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
             }
-            carsContainer.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
-        }        
-        currentCarLocationIndex += 1
+            car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+        }
+    }
+    
+    public func removeCarFromTrack(id: UUID) {
+        carViewModel.cars.forEach { car in
+            if car.id == id {
+                car.visible = !car.visible
+            }
+        }
+    }
+    public func addNewCarToTrack() {
+        carViewModel.addNewCar()
+        if let car = carViewModel.cars.last {
+            carsContainer.addChild(car.entity)
+        }
+    }
+    
+    public func cars() -> [Car] {
+        return carViewModel.cars
     }
 }
+
