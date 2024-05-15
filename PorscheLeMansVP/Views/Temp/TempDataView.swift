@@ -39,8 +39,8 @@ struct TempDataView: View {
             
             VStack(alignment: .leading, spacing: 0)  {
                 TitleView(title: "GFrce X/Y :", value: "\(String(format: "%.1f", currentGForceX ?? 0.0)) / \(String(format: "%.1f", currentGForceY ?? 0.0))")
-                TitleView(title: "Brake :", value: "\(String(format: "%.1f", currentBrake ?? 0.0))")
-                TitleView(title: "Throttle :", value: "\(String(format: "%.1f", currentThrottle ?? 0.0))")
+                TitleView(title: "Brake :", value: "\(String(format: "%.1f", currentBrake ?? 0.0)) bar")
+                TitleView(title: "Throttle :", value: "\(String(format: "%.1f", currentThrottle ?? 0.0)) %")
                 TitleView(title: "Fuel :", value: "\(String(format: "%.1f", currentFuel ?? 0.0))")
             }
             

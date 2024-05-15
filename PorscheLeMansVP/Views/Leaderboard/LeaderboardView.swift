@@ -25,15 +25,28 @@ struct LeaderboardView: View {
                         .foregroundColor(.black)
                         .cornerRadius(8)
                     
+                    Spacer().frame(width: 20)
+                    
                     Asset.Images.byName("icnFlag_\(item.country)")
                         .frame(alignment: .leading)
                     
-                    Color(hex: "\(item.color)")
-                        .frame(width: 4, height: 44)
+                    Spacer().frame(width: 20)
                     
-                    Text(item.name)
-                        .font(Asset.Fonts.porscheBold(size: 26))
-                        .foregroundColor(.white)
+                    Color(hex: "\(item.color)")
+                        .frame(width: 8, height: 44)
+                    
+                    Spacer().frame(width: 20)
+                    
+                    VStack(alignment: .leading) {
+                        Text(item.name)
+                            .font(Asset.Fonts.porscheBold(size: 26))
+                            .foregroundColor(.white)
+                            .frame(alignment: .leading)
+                        Text(item.carId)
+                            .font(Asset.Fonts.porscheRegular(size: 20))
+                            .foregroundColor(.gray)
+                            .frame(alignment: .leading)
+                    }
                     
                     Spacer()
                     
@@ -64,6 +77,8 @@ struct LeaderboardView: View {
                 leaderboard = DataClient.shared.getLeaderboard()
             }
         })
+        .modifier(DarkGlasBackgroundEffect(opacity: 0.3))
+        .padding(20)
     }
 
 }

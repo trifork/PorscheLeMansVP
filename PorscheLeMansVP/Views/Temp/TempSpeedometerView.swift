@@ -20,8 +20,9 @@ struct TempSpeedometerView: View {
         let zeroPoint = -90.0 // 0
         let maxPoint = 90.0 // 260
         let currentSpeed = speed ?? 0.0
+        let maxSpeed = 360.0
         
-        let procent = (currentSpeed / 260) * 100
+        let procent = (currentSpeed / maxSpeed) * 100
         let angle = (procent * 180) / 100
         var result = zeroPoint + angle
         if result > maxPoint {
