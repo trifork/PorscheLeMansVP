@@ -6,29 +6,47 @@
 //
 
 import SwiftUI
+import SwiftData
+import CoreData
 
 struct LeaderboardView: View {
     
-    @State private var updateTimer = Timer.publish(every: 1.01, on: .main, in: .common).autoconnect()
+    @State private var updateTimer = Timer.publish(every: 2.01, on: .main, in: .common).autoconnect()
     @State private var leaderboard: [RaceContestantItem] = []
     
     var body: some View {
         VStack {
-            List(leaderboard) { item in
+            List(Array(leaderboard.enumerated()), id: \.1.index) { index, item in
                 HStack {
-                    Text("\(item.position)")
+                    Text("\(index + 1)")
                         .font(Asset.Fonts.porscheRegular(size: 26))
                         .frame(width: 44, height: 44)
                         .background(.white)
                         .foregroundColor(.black)
                         .cornerRadius(8)
                     
-                    Color(.red)
-                        .frame(width: 4, height: 44)
+                    Spacer().frame(width: 20)
                     
-                    Text(item.initials)
-                        .font(Asset.Fonts.porscheBold(size: 26))
-                        .foregroundColor(.white)
+                    Asset.Images.byName("icnFlag_\(item.country)")
+                        .frame(alignment: .leading)
+                    
+                    Spacer().frame(width: 20)
+                    
+                    Color(hex: "\(item.color)")
+                        .frame(width: 8, height: 44)
+                    
+                    Spacer().frame(width: 20)
+                    
+                    VStack(alignment: .leading) {
+                        Text(item.name)
+                            .font(Asset.Fonts.porscheBold(size: 26))
+                            .foregroundColor(.white)
+                            .frame(alignment: .leading)
+                        Text(item.carId)
+                            .font(Asset.Fonts.porscheRegular(size: 20))
+                            .foregroundColor(.gray)
+                            .frame(alignment: .leading)
+                    }
                     
                     Spacer()
                     
@@ -48,13 +66,19 @@ struct LeaderboardView: View {
         .onReceive(updateTimer) { _ in
             DataClient.shared.updateLeaderboard(for: 2)
             DataClient.shared.updateLeaderboard(for: 3)
+            DataClient.shared.updateLeaderboard(for: 6)
+            DataClient.shared.updateLeaderboard(for: 11)
         }
         .onAppear() {
             DataClient.shared.fillLeaderboard() // Prefill data
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name.NSManagedObjectContextObjectsDidChange), perform: { notification in
-            leaderboard = DataClient.shared.getLeaderboard()
+            if DataClient.shared.isModified(of: RaceContestantItem.self, notification: notification) {
+                leaderboard = DataClient.shared.getLeaderboard()
+            }
         })
+        .modifier(DarkGlasBackgroundEffect(opacity: 0.3))
+        .padding(20)
     }
 
 }

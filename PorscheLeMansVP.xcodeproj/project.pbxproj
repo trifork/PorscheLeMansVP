@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61CFF8772BF34A2600936B88 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8762BF34A2600936B88 /* CarViewModel.swift */; };
-		61CFF87B2BF360A200936B88 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */; };
-		61CFF8802BF36F1C00936B88 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */; };
-		61CFF8822BF3705F00936B88 /* LineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8812BF3705F00936B88 /* LineEntity.swift */; };
-		61CFF8842BF3798700936B88 /* TrackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8832BF3798700936B88 /* TrackEntity.swift */; };
-		61CFF8882BF489E600936B88 /* CarsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8872BF489E600936B88 /* CarsMockData.swift */; };
+		61CFF8912BF4E28200936B88 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF88D2BF4E28200936B88 /* CoordinateConverter.swift */; };
+		61CFF8922BF4E28200936B88 /* TrackEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF88E2BF4E28200936B88 /* TrackEntity.swift */; };
+		61CFF8932BF4E28200936B88 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF88F2BF4E28200936B88 /* TrackViewModel.swift */; };
+		61CFF8972BF4E28D00936B88 /* CarsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8942BF4E28D00936B88 /* CarsMockData.swift */; };
+		61CFF8982BF4E28D00936B88 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8952BF4E28D00936B88 /* CarViewModel.swift */; };
+		61CFF89A2BF4E2B100936B88 /* LineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8992BF4E2B100936B88 /* LineEntity.swift */; };
 		BB93426A2BF20BF30081D78C /* DigitalNumbers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */; };
 		BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */; };
 		BB93426C2BF20BF30081D78C /* PorscheNext-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */; };
@@ -31,6 +31,22 @@
 		BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342802BF237430081D78C /* RaceContestantItem.swift */; };
 		BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342832BF238880081D78C /* LeaderboardView.swift */; };
 		BB9342862BF239CB0081D78C /* DataClient+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */; };
+		BB93428A2BF339E60081D78C /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342892BF339E60081D78C /* WebSocketClient.swift */; };
+		BB93428C2BF34AF00081D78C /* TickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93428B2BF34AF00081D78C /* TickerItem.swift */; };
+		BB93428E2BF34C480081D78C /* TickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93428D2BF34C480081D78C /* TickerView.swift */; };
+		BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93428F2BF390240081D78C /* DataClient+Validator.swift */; };
+		BB9342932BF392580081D78C /* TempSpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342922BF392580081D78C /* TempSpeedometerView.swift */; };
+		BB9342962BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv in Resources */ = {isa = PBXBuildFile; fileRef = BB9342952BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv */; };
+		BB9342982BF48F4C0081D78C /* CSVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342972BF48F4C0081D78C /* CSVClient.swift */; };
+		BB93429A2BF490200081D78C /* CSVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342992BF490200081D78C /* CSVFormatter.swift */; };
+		BB93429C2BF491A80081D78C /* CSVDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93429B2BF491A80081D78C /* CSVDataItem.swift */; };
+		BB93429E2BF49B320081D78C /* DataClient+CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93429D2BF49B320081D78C /* DataClient+CSV.swift */; };
+		BB9342A02BF4A26F0081D78C /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93429F2BF4A26F0081D78C /* Date+String.swift */; };
+		BB9342A22BF4AEE30081D78C /* TempDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A12BF4AEE30081D78C /* TempDataView.swift */; };
+		BB9342A52BF4B2350081D78C /* VP_LeMans_Lap2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */; };
+		BB9342A72BF4B3880081D78C /* TimeInterval+Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */; };
+		BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A82BF4C2490081D78C /* Color+hex.swift */; };
+		BB9342AB2BF4C7890081D78C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -47,12 +63,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		61CFF8762BF34A2600936B88 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
-		61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
-		61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
-		61CFF8812BF3705F00936B88 /* LineEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEntity.swift; sourceTree = "<group>"; };
-		61CFF8832BF3798700936B88 /* TrackEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEntity.swift; sourceTree = "<group>"; };
-		61CFF8872BF489E600936B88 /* CarsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsMockData.swift; sourceTree = "<group>"; };
+		61CFF88D2BF4E28200936B88 /* CoordinateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
+		61CFF88E2BF4E28200936B88 /* TrackEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackEntity.swift; sourceTree = "<group>"; };
+		61CFF88F2BF4E28200936B88 /* TrackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		61CFF8942BF4E28D00936B88 /* CarsMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsMockData.swift; sourceTree = "<group>"; };
+		61CFF8952BF4E28D00936B88 /* CarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		61CFF8992BF4E2B100936B88 /* LineEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEntity.swift; sourceTree = "<group>"; };
 		BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigitalNumbers-Regular.ttf"; sourceTree = "<group>"; };
 		BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-SemiBold.otf"; sourceTree = "<group>"; };
 		BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -71,6 +87,22 @@
 		BB9342802BF237430081D78C /* RaceContestantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceContestantItem.swift; sourceTree = "<group>"; };
 		BB9342832BF238880081D78C /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClient+Dummy.swift"; sourceTree = "<group>"; };
+		BB9342892BF339E60081D78C /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		BB93428B2BF34AF00081D78C /* TickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerItem.swift; sourceTree = "<group>"; };
+		BB93428D2BF34C480081D78C /* TickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerView.swift; sourceTree = "<group>"; };
+		BB93428F2BF390240081D78C /* DataClient+Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClient+Validator.swift"; sourceTree = "<group>"; };
+		BB9342922BF392580081D78C /* TempSpeedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSpeedometerView.swift; sourceTree = "<group>"; };
+		BB9342952BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv"; sourceTree = "<group>"; };
+		BB9342972BF48F4C0081D78C /* CSVClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVClient.swift; sourceTree = "<group>"; };
+		BB9342992BF490200081D78C /* CSVFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFormatter.swift; sourceTree = "<group>"; };
+		BB93429B2BF491A80081D78C /* CSVDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDataItem.swift; sourceTree = "<group>"; };
+		BB93429D2BF49B320081D78C /* DataClient+CSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClient+CSV.swift"; sourceTree = "<group>"; };
+		BB93429F2BF4A26F0081D78C /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		BB9342A12BF4AEE30081D78C /* TempDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDataView.swift; sourceTree = "<group>"; };
+		BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = VP_LeMans_Lap2.mp4; sourceTree = "<group>"; };
+		BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Calc.swift"; sourceTree = "<group>"; };
+		BB9342A82BF4C2490081D78C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
+		BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -100,23 +132,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61CFF8752BF34A0F00936B88 /* Car */ = {
+		61CFF8902BF4E28200936B88 /* Track */ = {
 			isa = PBXGroup;
 			children = (
-				61CFF8762BF34A2600936B88 /* CarViewModel.swift */,
-				61CFF8872BF489E600936B88 /* CarsMockData.swift */,
-			);
-			path = Car;
-			sourceTree = "<group>";
-		};
-		61CFF87C2BF36E7A00936B88 /* Track */ = {
-			isa = PBXGroup;
-			children = (
-				61CFF87F2BF36F1C00936B88 /* TrackViewModel.swift */,
-				61CFF8832BF3798700936B88 /* TrackEntity.swift */,
-				61CFF87A2BF360A200936B88 /* CoordinateConverter.swift */,
+				61CFF88D2BF4E28200936B88 /* CoordinateConverter.swift */,
+				61CFF88E2BF4E28200936B88 /* TrackEntity.swift */,
+				61CFF88F2BF4E28200936B88 /* TrackViewModel.swift */,
 			);
 			path = Track;
+			sourceTree = "<group>";
+		};
+		61CFF8962BF4E28D00936B88 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				61CFF8942BF4E28D00936B88 /* CarsMockData.swift */,
+				61CFF8952BF4E28D00936B88 /* CarViewModel.swift */,
+			);
+			path = Car;
 			sourceTree = "<group>";
 		};
 		BB93425F2BF20BD30081D78C /* Fonts */ = {
@@ -164,9 +196,50 @@
 		BB9342872BF3389D0081D78C /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BB9342942BF48F0D0081D78C /* CSV */,
 				BB98C6462BF204E000C17681 /* Data */,
+				BB9342882BF339C80081D78C /* WebSocket */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		BB9342882BF339C80081D78C /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				BB9342892BF339E60081D78C /* WebSocketClient.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		BB9342912BF390A90081D78C /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				BB93428B2BF34AF00081D78C /* TickerItem.swift */,
+				BB93428D2BF34C480081D78C /* TickerView.swift */,
+				BB9342922BF392580081D78C /* TempSpeedometerView.swift */,
+				BB9342A12BF4AEE30081D78C /* TempDataView.swift */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
+		BB9342942BF48F0D0081D78C /* CSV */ = {
+			isa = PBXGroup;
+			children = (
+				BB9342952BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv */,
+				BB9342972BF48F4C0081D78C /* CSVClient.swift */,
+				BB9342992BF490200081D78C /* CSVFormatter.swift */,
+				BB93429B2BF491A80081D78C /* CSVDataItem.swift */,
+				BB93429D2BF49B320081D78C /* DataClient+CSV.swift */,
+			);
+			path = CSV;
+			sourceTree = "<group>";
+		};
+		BB9342A32BF4B2350081D78C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		BB98C6252BF204B300C17681 = {
@@ -191,8 +264,8 @@
 			children = (
 				BB9342872BF3389D0081D78C /* API */,
 				BB98C65A2BF20B0300C17681 /* Resources */,
-				BB98C6482BF204F200C17681 /* Views */,
 				BB98C6472BF204EC00C17681 /* Helpers */,
+				BB98C6482BF204F200C17681 /* Views */,
 				BB98C6352BF204B300C17681 /* AppMain.swift */,
 				BB98C6492BF2050F00C17681 /* AppDelegate.swift */,
 				BB98C6402BF204B400C17681 /* Info.plist */,
@@ -223,6 +296,7 @@
 				BB98C6552BF2069800C17681 /* Models */,
 				BB98C6532BF2063C00C17681 /* DataClient.swift */,
 				BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */,
+				BB93428F2BF390240081D78C /* DataClient+Validator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -230,12 +304,16 @@
 		BB98C6472BF204EC00C17681 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				61CFF8812BF3705F00936B88 /* LineEntity.swift */,
+				61CFF8992BF4E2B100936B88 /* LineEntity.swift */,
 				BB98C64F2BF205F700C17681 /* Collection+Safe.swift */,
 				BB98C6502BF205F700C17681 /* Loggable.swift */,
 				BB98C64B2BF205C400C17681 /* VideoSound.swift */,
 				BB98C64D2BF205D000C17681 /* Platform.swift */,
 				BB9342752BF20F1B0081D78C /* Materials.swift */,
+				BB93429F2BF4A26F0081D78C /* Date+String.swift */,
+				BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */,
+				BB9342A82BF4C2490081D78C /* Color+hex.swift */,
+				BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -243,8 +321,9 @@
 		BB98C6482BF204F200C17681 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				61CFF87C2BF36E7A00936B88 /* Track */,
-				61CFF8752BF34A0F00936B88 /* Car */,
+				61CFF8962BF4E28D00936B88 /* Car */,
+				61CFF8902BF4E28200936B88 /* Track */,
+				BB9342912BF390A90081D78C /* Temp */,
 				BB9342822BF238780081D78C /* Leaderboard */,
 				BB9342792BF2124A0081D78C /* VideoPlayer */,
 				BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */,
@@ -266,6 +345,7 @@
 		BB98C65A2BF20B0300C17681 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB9342A32BF4B2350081D78C /* Video */,
 				BB98C63B2BF204B400C17681 /* Assets.xcassets */,
 				BB93425F2BF20BD30081D78C /* Fonts */,
 				BB9342732BF20CA40081D78C /* Assets.swift */,
@@ -343,7 +423,9 @@
 				BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */,
 				BB93426F2BF20BF30081D78C /* PorscheNext-Thin.otf in Resources */,
 				BB9342712BF20BF30081D78C /* PorscheNext-SemiBoldItalic.otf in Resources */,
+				BB9342A52BF4B2350081D78C /* VP_LeMans_Lap2.mp4 in Resources */,
 				BB9342722BF20BF30081D78C /* PorscheNext-Regular.otf in Resources */,
+				BB9342962BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv in Resources */,
 				BB98C63C2BF204B400C17681 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,30 +437,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61CFF8932BF4E28200936B88 /* TrackViewModel.swift in Sources */,
+				BB9342A72BF4B3880081D78C /* TimeInterval+Calc.swift in Sources */,
 				BB9342862BF239CB0081D78C /* DataClient+Dummy.swift in Sources */,
+				BB93429A2BF490200081D78C /* CSVFormatter.swift in Sources */,
 				BB9342762BF20F1B0081D78C /* Materials.swift in Sources */,
+				61CFF89A2BF4E2B100936B88 /* LineEntity.swift in Sources */,
+				61CFF8922BF4E28200936B88 /* TrackEntity.swift in Sources */,
 				BB98C6572BF206B600C17681 /* RaceDataItem.swift in Sources */,
 				BB9342742BF20CA40081D78C /* Assets.swift in Sources */,
 				BB98C6512BF205F700C17681 /* Collection+Safe.swift in Sources */,
 				BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */,
+				BB93429E2BF49B320081D78C /* DataClient+CSV.swift in Sources */,
+				BB9342AB2BF4C7890081D78C /* ViewModifiers.swift in Sources */,
+				BB9342A02BF4A26F0081D78C /* Date+String.swift in Sources */,
+				61CFF8972BF4E28D00936B88 /* CarsMockData.swift in Sources */,
+				BB93428E2BF34C480081D78C /* TickerView.swift in Sources */,
+				61CFF8912BF4E28200936B88 /* CoordinateConverter.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,
-				61CFF8772BF34A2600936B88 /* CarViewModel.swift in Sources */,
-				61CFF8822BF3705F00936B88 /* LineEntity.swift in Sources */,
-				61CFF8802BF36F1C00936B88 /* TrackViewModel.swift in Sources */,
 				BB98C6522BF205F700C17681 /* Loggable.swift in Sources */,
+				BB9342A22BF4AEE30081D78C /* TempDataView.swift in Sources */,
+				BB9342982BF48F4C0081D78C /* CSVClient.swift in Sources */,
 				BB9342782BF211F50081D78C /* DashboardView.swift in Sources */,
-				61CFF87B2BF360A200936B88 /* CoordinateConverter.swift in Sources */,
+				61CFF8982BF4E28D00936B88 /* CarViewModel.swift in Sources */,
 				BB93427E2BF2124A0081D78C /* VideoPlayListItem.swift in Sources */,
+				BB93429C2BF491A80081D78C /* CSVDataItem.swift in Sources */,
+				BB93428A2BF339E60081D78C /* WebSocketClient.swift in Sources */,
 				BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */,
-				61CFF8882BF489E600936B88 /* CarsMockData.swift in Sources */,
+				BB93428C2BF34AF00081D78C /* TickerItem.swift in Sources */,
 				BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */,
+				BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,
+				BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */,
+				BB9342932BF392580081D78C /* TempSpeedometerView.swift in Sources */,
 				BB98C6542BF2063C00C17681 /* DataClient.swift in Sources */,
 				BB98C6362BF204B300C17681 /* AppMain.swift in Sources */,
 				BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */,
 				BB98C64C2BF205C400C17681 /* VideoSound.swift in Sources */,
-				61CFF8842BF3798700936B88 /* TrackEntity.swift in Sources */,
 				BB93427F2BF2124A0081D78C /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
