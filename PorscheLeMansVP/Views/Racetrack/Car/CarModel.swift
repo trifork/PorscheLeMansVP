@@ -1,6 +1,5 @@
 import Foundation
 import RealityKit
-import RealityKitContent
 
 public class Car: Identifiable {
     public var id = UUID()

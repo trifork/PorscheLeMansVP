@@ -1,6 +1,5 @@
 import Foundation
 import RealityKit
-import RealityKitContent
 
 @Observable
 final class TrackViewModel {

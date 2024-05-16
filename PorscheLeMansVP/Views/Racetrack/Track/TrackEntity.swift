@@ -1,9 +1,6 @@
 import Foundation
 import RealityKit
 import RealityKitContent
-import Observation
-import SwiftUI
-import CoreLocation
 
 @Observable
 final class TrackEntity {    
