@@ -62,8 +62,6 @@ public struct LineChartWrapperView: View {
                     return ChartDataPoint(x: idx, y: item.gLong ?? 0.0)
                 }
             }
-            
-            print("asd")
         }
     }
     
