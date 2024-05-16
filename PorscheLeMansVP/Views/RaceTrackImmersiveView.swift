@@ -73,7 +73,7 @@ struct RaceTrackImmersiveView: View {
             Attachment(id: "Dashboard") {
                 DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted)
                 
-                //////////////// DEBUG COLLISIONS ///////////////////
+                //////////////// DEBUG  ///////////////////
                 HStack {
                     ForEach(racetrack.cars()) { car in
                         Button {
@@ -89,7 +89,7 @@ struct RaceTrackImmersiveView: View {
                 } label: {
                     Text("Add new car")
                 }
-                //////////////// DEBUG COLLISIONS ///////////////////
+                //////////////// DEBUG  ///////////////////
             }
         }
         .onAppear() {
