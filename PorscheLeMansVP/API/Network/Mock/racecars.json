@@ -1,0 +1,225 @@
+[
+    {
+        "carId": "2",
+        "team": "Cadillac Racing",
+        "car": "Cadillac V-Series.R",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "3",
+        "team": "Cadillac Racing",
+        "car": "Cadillac V-Series.R",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "4",
+        "team": "Porsche Penske Motorsport",
+        "car": "Porsche 963",
+        "type": "own",
+        "drivers": [
+            {
+                "name": "Mathieu Jaminet",
+                "country": "France"
+            },
+            {
+                "name": "Felipe Nasr",
+                "country": "Brazil"
+            },
+            {
+                "name": "Nick Tandy",
+                "country": "United Kingdom"
+            }
+        ],
+        "stream": "https://example.com/4.m3u8"
+    },
+    {
+        "carId": "5",
+        "team": "Porsche Penske Motorsport",
+        "car": "Porsche 963",
+        "type": "own",
+        "drivers": [
+            {
+                "name": "Matt Campbell",
+                "country": "New Zealand"
+            },
+            {
+                "name": "Michael Christensen",
+                "country": "Denmark"
+            },
+            {
+                "name": "Frederic Makowiecki",
+                "country": "France"
+            }
+        ],
+        "stream": "https://example.com/5.m3u8"
+    },
+    {
+        "carId": "6",
+        "team": "Porsche Penske Motorsport",
+        "car": "Porsche 963",
+        "type": "own",
+        "drivers": [
+            {
+                "name": "Kevin Estre",
+                "country": "France"
+            },
+            {
+                "name": "Andre Lotterer",
+                "country": "Germany"
+            },
+            {
+                "name": "Laurens Vantoor",
+                "country": "Belgium"
+            }
+        ],
+        "stream": "https://example.com/6.m3u8"
+    },
+    {
+        "carId": "7",
+        "team": "Toyota Gazoo Racing",
+        "car": "Toyota GR010 Hybrid",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "8",
+        "team": "Toyota Gazoo Racing",
+        "car": "Toyota GR010 Hybrid",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "11",
+        "team": "Isotta Fraschini",
+        "car": "Isotta Fraschini Tipo 6",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "12",
+        "team": "Hertz Team JOTA",
+        "car": "Porsche 963",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "15",
+        "team": "BMW M Team WRT",
+        "car": "BMW M Hybrid V8",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "19",
+        "team": "Lamborghini Iron Lynx",
+        "car": "Lamborghini SC63",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "20",
+        "team": "BMW M Team WRT",
+        "car": "BMW M Hybrid V8",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "35",
+        "team": "Alpine Endurance Team",
+        "car": "Alpine A424",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "36",
+        "team": "Alpine Endurance Team",
+        "car": "Alpine A424",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "38",
+        "team": "Hertz Team JOTA",
+        "car": "Porsche 963",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "50",
+        "team": "Ferrari AF Corse",
+        "car": "Ferrari 499P",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "51",
+        "team": "Ferrari AF Corse",
+        "car": "Ferrari 499P",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "63",
+        "team": "Lamborghini Iron Lynx",
+        "car": "Lamborghini SC63",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "83",
+        "team": "Ferrari AF Corse",
+        "car": "Ferrari 499P",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "93",
+        "team": "Peugeot TotalEnergies",
+        "car": "Peugeot 9X8",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "94",
+        "team": "Peugeot TotalEnergies",
+        "car": "Peugeot 9X8",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "99",
+        "team": "Proton Competition",
+        "car": "Porsche 963",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    },
+    {
+        "carId": "311",
+        "team": "Action Express Racing",
+        "car": "Cadillac V-Series.R",
+        "type": "competitor",
+        "drivers": [],
+        "stream": null
+    }
+]

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "mhp_logo_white_no_sub.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
