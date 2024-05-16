@@ -23,6 +23,7 @@ extension NetworkClient {
                 failure(error.localizedDescription)
             }
         } else {
+            log(message: "Couldn't find/parse casecar json)", level: .error)
             failure("Couldn't find/parse casecar json")
         }
         

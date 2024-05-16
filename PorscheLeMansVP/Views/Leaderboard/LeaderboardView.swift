@@ -77,7 +77,7 @@ struct LeaderboardView: View {
                 leaderboard = DataClient.shared.getLeaderboard()
             }
         })
-        .modifier(DarkGlasBackgroundEffect(opacity: 0.3))
+        .modifier(DarkGlasBackgroundEffect())
         .padding(20)
     }
 

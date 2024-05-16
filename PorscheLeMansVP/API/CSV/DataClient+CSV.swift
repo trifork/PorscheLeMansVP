@@ -25,4 +25,20 @@ extension DataClient {
 
         return nil
     }
+    
+    @MainActor
+    func getCSVItem(before index: Int, limit: Int? = nil) -> [CSVDataItem]? {
+        let predicate = #Predicate<CSVDataItem> { $0.index <= index }
+        var descriptor = FetchDescriptor<CSVDataItem>(predicate: predicate)
+        if let limit = limit {
+            descriptor.fetchLimit = limit
+            descriptor.sortBy = [SortDescriptor(\CSVDataItem.index, order: .reverse)]
+        }
+        if let items = try? modelContainer.mainContext.fetch(descriptor) {
+            return limit != nil ? items.reversed() : items
+        }
+
+        return nil
+    }
+    
 }
