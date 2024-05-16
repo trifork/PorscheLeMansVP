@@ -48,6 +48,7 @@ struct RaceTrackImmersiveView: View {
         self.didLoadSceneEntity = didLoadSceneEntity
         
         self.carsPlatform = ModelEntity(mesh: .generateCylinder(height: platformHeight / platformContainerScale, radius: platformRadius / platformContainerScale), materials: [Materials.platformMaterial()])
+        self.carsPlatform.name = "carsPlatform"
         
         videoViewModel.configure(videoUrl: videoViewModel.selectedVideo)
         
@@ -77,24 +78,23 @@ struct RaceTrackImmersiveView: View {
         RealityView { content, attachments in
             if let track = try? await racetrack.entity() {
                 racetrackContainer.addChild(track)
-               
-                // Cars
-                if let carEntity = try? await Entity(named: "Porsche_963", in: realityKitContentBundle) {
-                    carEntity.position = [carEntity.position.x, platformHeight / platformContainerScale, carEntity.position.z]
-                    carsContainer.addChild(carEntity)
-                    
-                    let car2 = carEntity.clone(recursive: true)
-                    car2.position = [carEntity.position.x - 2.75, carEntity.position.y, carEntity.position.z + 0.95]
-                    carsContainer.addChild(car2)
-                    
-                    let car3 = carEntity.clone(recursive: true)
-                    car3.position = [carEntity.position.x + 2.75, carEntity.position.y, carEntity.position.z - 0.95]
-                    carsContainer.addChild(car3)
-                    
-                    
-                    // Platform rotation
-                    carsRotationHandler.configure(rotatingObject: carsContainer, platformSize: platformRadius, initialRotationDegrees: carsPlatformIntialDegrees)
-                }
+            }
+            
+            // Cars
+            if let carEntity = try? await Entity(named: "Porsche_963", in: realityKitContentBundle) {
+                carEntity.position = [carEntity.position.x, platformHeight / platformContainerScale, carEntity.position.z]
+                carsContainer.addChild(carEntity)
+                
+                let car2 = carEntity.clone(recursive: true)
+                car2.position = [carEntity.position.x - 2.75, carEntity.position.y, carEntity.position.z + 0.95]
+                carsContainer.addChild(car2)
+                
+                let car3 = carEntity.clone(recursive: true)
+                car3.position = [carEntity.position.x + 2.75, carEntity.position.y, carEntity.position.z - 0.95]
+                carsContainer.addChild(car3)
+                
+                // Platform rotation
+                self.carsRotationHandler.configure(rotatingObject: carsContainer, platformSize: platformRadius, initialRotationDegrees: carsPlatformIntialDegrees)
             }
             
             if let dashboard = attachments.entity(for: "Dashboard") {
@@ -134,7 +134,7 @@ struct RaceTrackImmersiveView: View {
         .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)
             .targetedToAnyEntity()
             .onChanged { value in
-                if value.entity == carsPlatform {
+                if value.entity.name == "carsPlatform" {
                     let pointsPerMeter = 1360.0 // Cannot get this from the value, but it can be seen in the debugger
                     
                     carsRotationHandler.updateRotation(startPosition: Float(value.startLocation.x), currentPosition: Float(value.location.x), pointsPerMeter: Float(pointsPerMeter))
