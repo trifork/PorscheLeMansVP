@@ -55,7 +55,7 @@ public class Car: Identifiable {
     
     public func newCar() -> Car {
         let referenceLocation = referenceLocationCar1()
-        return Car( visible: true, entity: carViewModel.createNewCar(color: .purple, id: "5"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
+        return Car( visible: true, entity: carViewModel.createNewCar(color: .cyan, id: "5"), currentLocation: referenceLocation[0], referenceLocation: referenceLocation)
     }
     
     private func referenceLocationCar1() -> [ReferenceLocation] {

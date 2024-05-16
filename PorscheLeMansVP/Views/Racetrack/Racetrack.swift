@@ -6,67 +6,30 @@ import SwiftUI
 import CoreLocation
 
 @Observable
-final class TrackEntity {
-    public static let shared = TrackEntity()
+final class Racetrack {
+    public static let shared = Racetrack()
     
+    private var trackEntity = Entity()
     private var mainContainer = Entity() // Containing track and cars
     private var trackContainer = Entity() // Containing track
     private var carsContainer = Entity() // Containing all cars
-    
-    private var trackEntity = Entity()
-    
+   
     private let trackViewModel = TrackViewModel()
     private let carViewModel = CarViewModel()
+    private let track = TrackEntity()
     
     @MainActor
     public func entity() async throws -> Entity {
         do {
-            trackEntity = try await Entity(named: trackViewModel.trackName, in: realityKitContentBundle)
-            trackEntity.name = "TrackEntity"
+            // Add track
+            trackEntity = try await track.entity(trackViewModel: trackViewModel)
             trackContainer.addChild(trackEntity)
-            
-            // Add lighting
-            if trackViewModel.addLighting {
-                do {
-                    let resource = try await EnvironmentResource(named: "Environment")
-                    let lightComponent = ImageBasedLightComponent(
-                        source: .single(resource),
-                        intensityExponent: 0.0)
-                    trackEntity.components.set(lightComponent)
-                    trackEntity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: trackEntity))
-                } catch {
-                    print("Error in RealityView's make: \(error)")
-                }
-            }
-            
-            // Setup collision filter
-            let collisionFilter = CollisionFilter(group: trackViewModel.collisionGroup, mask: .all)
-            for collisionsEntityName in trackViewModel.collisionsEntityNames {
-                let tarmac = trackEntity.findEntity(named: collisionsEntityName)
-                if let entity = tarmac?.children[0] {
-                    var components = entity.components
-                    
-                    if var collisionComponent = components[CollisionComponent.self] {
-                        // There is already a collision component. Set the filter on it.
-                        collisionComponent.filter = collisionFilter
-                        components[CollisionComponent.self] = collisionComponent
-                        entity.components = components
-                    } else if let modelComponent = components[ModelComponent.self] {
-                        // There is no collision component. Add one
-                        let shape = try? await ShapeResource.generateConvex(from: modelComponent.mesh)
-                        if let shape = shape {
-                            let collisionComponent = CollisionComponent(shapes: [shape], filter: collisionFilter)
-                            components[CollisionComponent.self] = collisionComponent
-                            entity.components = components
-                        }
-                    }
-                }
-            }
             
             // Add cars to cars container
             carViewModel.setupMockData()
             
             for car in carViewModel.cars {
+                // Add all cars
                 carsContainer.addChild(car.entity)
             }
             
@@ -75,13 +38,14 @@ final class TrackEntity {
             mainContainer.addChild(carsContainer)
             
             return mainContainer
+            
         } catch {
             print("Error in RealityView's make: \(error)")
             fatalError()
         }
     }
     
-    public func updateCarPosition() {        
+    public func updateCarPosition() {
         for car in carViewModel.cars {
             let referenceLocation = car.getReferenceLocation()
             let currentLocation = car.currentLocation
@@ -168,4 +132,3 @@ final class TrackEntity {
         return carViewModel.cars
     }
 }
-

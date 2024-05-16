@@ -13,6 +13,7 @@
 		61CFF8972BF4E28D00936B88 /* CarsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8942BF4E28D00936B88 /* CarsMockData.swift */; };
 		61CFF8982BF4E28D00936B88 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8952BF4E28D00936B88 /* CarViewModel.swift */; };
 		61CFF89A2BF4E2B100936B88 /* LineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8992BF4E2B100936B88 /* LineEntity.swift */; };
+		61CFF89D2BF5DDFD00936B88 /* Racetrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF89C2BF5DDFD00936B88 /* Racetrack.swift */; };
 		BB93426A2BF20BF30081D78C /* DigitalNumbers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */; };
 		BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */; };
 		BB93426C2BF20BF30081D78C /* PorscheNext-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */; };
@@ -69,6 +70,7 @@
 		61CFF8942BF4E28D00936B88 /* CarsMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsMockData.swift; sourceTree = "<group>"; };
 		61CFF8952BF4E28D00936B88 /* CarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
 		61CFF8992BF4E2B100936B88 /* LineEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEntity.swift; sourceTree = "<group>"; };
+		61CFF89C2BF5DDFD00936B88 /* Racetrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Racetrack.swift; sourceTree = "<group>"; };
 		BB9342612BF20BF30081D78C /* DigitalNumbers-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigitalNumbers-Regular.ttf"; sourceTree = "<group>"; };
 		BB9342622BF20BF30081D78C /* PorscheNext-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-SemiBold.otf"; sourceTree = "<group>"; };
 		BB9342632BF20BF30081D78C /* PorscheNext-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PorscheNext-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -132,14 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61CFF8902BF4E28200936B88 /* Track */ = {
+		61CFF8902BF4E28200936B88 /* Racetrack */ = {
 			isa = PBXGroup;
 			children = (
-				61CFF88D2BF4E28200936B88 /* CoordinateConverter.swift */,
-				61CFF88E2BF4E28200936B88 /* TrackEntity.swift */,
-				61CFF88F2BF4E28200936B88 /* TrackViewModel.swift */,
+				61CFF89E2BF5E48700936B88 /* Track */,
+				61CFF8962BF4E28D00936B88 /* Car */,
+				61CFF89C2BF5DDFD00936B88 /* Racetrack.swift */,
 			);
-			path = Track;
+			path = Racetrack;
 			sourceTree = "<group>";
 		};
 		61CFF8962BF4E28D00936B88 /* Car */ = {
@@ -149,6 +151,16 @@
 				61CFF8952BF4E28D00936B88 /* CarViewModel.swift */,
 			);
 			path = Car;
+			sourceTree = "<group>";
+		};
+		61CFF89E2BF5E48700936B88 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				61CFF88F2BF4E28200936B88 /* TrackViewModel.swift */,
+				61CFF88D2BF4E28200936B88 /* CoordinateConverter.swift */,
+				61CFF88E2BF4E28200936B88 /* TrackEntity.swift */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		BB93425F2BF20BD30081D78C /* Fonts */ = {
@@ -321,8 +333,7 @@
 		BB98C6482BF204F200C17681 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				61CFF8962BF4E28D00936B88 /* Car */,
-				61CFF8902BF4E28200936B88 /* Track */,
+				61CFF8902BF4E28200936B88 /* Racetrack */,
 				BB9342912BF390A90081D78C /* Temp */,
 				BB9342822BF238780081D78C /* Leaderboard */,
 				BB9342792BF2124A0081D78C /* VideoPlayer */,
@@ -468,6 +479,7 @@
 				BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */,
 				BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
+				61CFF89D2BF5DDFD00936B88 /* Racetrack.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,
 				BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */,
 				BB9342932BF392580081D78C /* TempSpeedometerView.swift in Sources */,
