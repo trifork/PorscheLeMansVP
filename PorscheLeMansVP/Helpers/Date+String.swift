@@ -8,6 +8,10 @@
 import Foundation
 
 extension Date {
+    
+    public var fullTimeMS: String { self.toString(format: "HH:mm:ss.SSSS") }
+    public var fullTime: String { self.toString(format: "HH:mm:ss") }
+    
     public func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format

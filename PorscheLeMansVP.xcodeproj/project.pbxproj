@@ -41,6 +41,22 @@
 		BB9342A72BF4B3880081D78C /* TimeInterval+Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */; };
 		BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342A82BF4C2490081D78C /* Color+hex.swift */; };
 		BB9342AB2BF4C7890081D78C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */; };
+		BB9343012BF4EC9E0081D78C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343002BF4EC9E0081D78C /* NetworkClient.swift */; };
+		BB9343032BF4ECF80081D78C /* CarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343022BF4ECF80081D78C /* CarEndpoint.swift */; };
+		BB9343062BF4ED6B0081D78C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343052BF4ED6B0081D78C /* Endpoint.swift */; };
+		BB9343082BF4ED800081D78C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343072BF4ED800081D78C /* HTTPMethod.swift */; };
+		BB93430A2BF4EF3F0081D78C /* URLRequest+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343092BF4EF3F0081D78C /* URLRequest+Endpoint.swift */; };
+		BB93430E2BF52E4F0081D78C /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93430D2BF52E4F0081D78C /* HTTPClientProtocol.swift */; };
+		BB9343102BF52E6B0081D78C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93430F2BF52E6B0081D78C /* HTTPClient.swift */; };
+		BB9343152BF52F9F0081D78C /* CarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343142BF52F9F0081D78C /* CarResponse.swift */; };
+		BB9343172BF530730081D78C /* URLErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343162BF530730081D78C /* URLErrorHandler.swift */; };
+		BB93431A2BF530A70081D78C /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343192BF530A70081D78C /* ErrorModel.swift */; };
+		BB93431C2BF530CC0081D78C /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93431B2BF530CC0081D78C /* HTTPClientError.swift */; };
+		BB93431E2BF530E90081D78C /* HTTPClientErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93431D2BF530E90081D78C /* HTTPClientErrorHandler.swift */; };
+		BB9343212BF5312C0081D78C /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343202BF5312C0081D78C /* JSONParser.swift */; };
+		BB9343232BF5313A0081D78C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343222BF5313A0081D78C /* Parser.swift */; };
+		BB9343252BF5D2AF0081D78C /* NetworkClient+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343242BF5D2AF0081D78C /* NetworkClient+Content.swift */; };
+		BB9343282BF5D4320081D78C /* racecars.json in Resources */ = {isa = PBXBuildFile; fileRef = BB9343272BF5D4320081D78C /* racecars.json */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -91,6 +107,22 @@
 		BB9342A62BF4B3880081D78C /* TimeInterval+Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Calc.swift"; sourceTree = "<group>"; };
 		BB9342A82BF4C2490081D78C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		BB9343002BF4EC9E0081D78C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		BB9343022BF4ECF80081D78C /* CarEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEndpoint.swift; sourceTree = "<group>"; };
+		BB9343052BF4ED6B0081D78C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		BB9343072BF4ED800081D78C /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		BB9343092BF4EF3F0081D78C /* URLRequest+Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Endpoint.swift"; sourceTree = "<group>"; };
+		BB93430D2BF52E4F0081D78C /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
+		BB93430F2BF52E6B0081D78C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		BB9343142BF52F9F0081D78C /* CarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarResponse.swift; sourceTree = "<group>"; };
+		BB9343162BF530730081D78C /* URLErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLErrorHandler.swift; sourceTree = "<group>"; };
+		BB9343192BF530A70081D78C /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		BB93431B2BF530CC0081D78C /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
+		BB93431D2BF530E90081D78C /* HTTPClientErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientErrorHandler.swift; sourceTree = "<group>"; };
+		BB9343202BF5312C0081D78C /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		BB9343222BF5313A0081D78C /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		BB9343242BF5D2AF0081D78C /* NetworkClient+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkClient+Content.swift"; sourceTree = "<group>"; };
+		BB9343272BF5D4320081D78C /* racecars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = racecars.json; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -165,6 +197,7 @@
 		BB9342872BF3389D0081D78C /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BB9342FF2BF4EC750081D78C /* Network */,
 				BB9342942BF48F0D0081D78C /* CSV */,
 				BB98C6462BF204E000C17681 /* Data */,
 				BB9342882BF339C80081D78C /* WebSocket */,
@@ -209,6 +242,85 @@
 				BB9342A42BF4B2350081D78C /* VP_LeMans_Lap2.mp4 */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		BB9342FF2BF4EC750081D78C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343262BF5D2DA0081D78C /* Mock */,
+				BB93431F2BF531210081D78C /* Parser */,
+				BB9343132BF52F7F0081D78C /* Models */,
+				BB9343122BF52F6B0081D78C /* HTTP */,
+				BB9343112BF52F600081D78C /* Extensions */,
+				BB9343042BF4ED520081D78C /* Endpoints */,
+				BB9343002BF4EC9E0081D78C /* NetworkClient.swift */,
+				BB9343242BF5D2AF0081D78C /* NetworkClient+Content.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BB9343042BF4ED520081D78C /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343052BF4ED6B0081D78C /* Endpoint.swift */,
+				BB9343022BF4ECF80081D78C /* CarEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		BB9343112BF52F600081D78C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343092BF4EF3F0081D78C /* URLRequest+Endpoint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BB9343122BF52F6B0081D78C /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343182BF5309A0081D78C /* Error */,
+				BB9343072BF4ED800081D78C /* HTTPMethod.swift */,
+				BB93430D2BF52E4F0081D78C /* HTTPClientProtocol.swift */,
+				BB93430F2BF52E6B0081D78C /* HTTPClient.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		BB9343132BF52F7F0081D78C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343142BF52F9F0081D78C /* CarResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB9343182BF5309A0081D78C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343162BF530730081D78C /* URLErrorHandler.swift */,
+				BB9343192BF530A70081D78C /* ErrorModel.swift */,
+				BB93431B2BF530CC0081D78C /* HTTPClientError.swift */,
+				BB93431D2BF530E90081D78C /* HTTPClientErrorHandler.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		BB93431F2BF531210081D78C /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343202BF5312C0081D78C /* JSONParser.swift */,
+				BB9343222BF5313A0081D78C /* Parser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		BB9343262BF5D2DA0081D78C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343272BF5D4320081D78C /* racecars.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		BB98C6252BF204B300C17681 = {
@@ -387,6 +499,7 @@
 				BB93426A2BF20BF30081D78C /* DigitalNumbers-Regular.ttf in Resources */,
 				BB9342702BF20BF30081D78C /* PorscheNext-RegularItalic.otf in Resources */,
 				BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */,
+				BB9343282BF5D4320081D78C /* racecars.json in Resources */,
 				BB93426F2BF20BF30081D78C /* PorscheNext-Thin.otf in Resources */,
 				BB9342712BF20BF30081D78C /* PorscheNext-SemiBoldItalic.otf in Resources */,
 				BB9342A52BF4B2350081D78C /* VP_LeMans_Lap2.mp4 in Resources */,
@@ -404,20 +517,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB9342A72BF4B3880081D78C /* TimeInterval+Calc.swift in Sources */,
+				BB9343232BF5313A0081D78C /* Parser.swift in Sources */,
+				BB93431C2BF530CC0081D78C /* HTTPClientError.swift in Sources */,
+				BB93430E2BF52E4F0081D78C /* HTTPClientProtocol.swift in Sources */,
 				BB9342862BF239CB0081D78C /* DataClient+Dummy.swift in Sources */,
+				BB9343212BF5312C0081D78C /* JSONParser.swift in Sources */,
 				BB93429A2BF490200081D78C /* CSVFormatter.swift in Sources */,
+				BB9343152BF52F9F0081D78C /* CarResponse.swift in Sources */,
 				BB9342762BF20F1B0081D78C /* Materials.swift in Sources */,
 				BB98C6572BF206B600C17681 /* RaceDataItem.swift in Sources */,
 				BB9342742BF20CA40081D78C /* Assets.swift in Sources */,
 				BB98C6512BF205F700C17681 /* Collection+Safe.swift in Sources */,
+				BB9343082BF4ED800081D78C /* HTTPMethod.swift in Sources */,
 				BB9342842BF238880081D78C /* LeaderboardView.swift in Sources */,
 				BB93429E2BF49B320081D78C /* DataClient+CSV.swift in Sources */,
 				BB9342AB2BF4C7890081D78C /* ViewModifiers.swift in Sources */,
+				BB9343062BF4ED6B0081D78C /* Endpoint.swift in Sources */,
+				BB9343252BF5D2AF0081D78C /* NetworkClient+Content.swift in Sources */,
 				BB9342A02BF4A26F0081D78C /* Date+String.swift in Sources */,
 				BB93428E2BF34C480081D78C /* TickerView.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,
 				BB98C6522BF205F700C17681 /* Loggable.swift in Sources */,
+				BB9343032BF4ECF80081D78C /* CarEndpoint.swift in Sources */,
+				BB93431E2BF530E90081D78C /* HTTPClientErrorHandler.swift in Sources */,
 				BB9342A22BF4AEE30081D78C /* TempDataView.swift in Sources */,
+				BB93431A2BF530A70081D78C /* ErrorModel.swift in Sources */,
 				BB9342982BF48F4C0081D78C /* CSVClient.swift in Sources */,
 				BB9342782BF211F50081D78C /* DashboardView.swift in Sources */,
 				BB93427E2BF2124A0081D78C /* VideoPlayListItem.swift in Sources */,
@@ -425,16 +549,20 @@
 				BB93428A2BF339E60081D78C /* WebSocketClient.swift in Sources */,
 				BB9342812BF237430081D78C /* RaceContestantItem.swift in Sources */,
 				BB93428C2BF34AF00081D78C /* TickerItem.swift in Sources */,
+				BB9343102BF52E6B0081D78C /* HTTPClient.swift in Sources */,
 				BB93427D2BF2124A0081D78C /* VideoPlayerViewModel.swift in Sources */,
 				BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
+				BB9343012BF4EC9E0081D78C /* NetworkClient.swift in Sources */,
 				BB98C6592BF206E900C17681 /* WelcomeView.swift in Sources */,
+				BB9343172BF530730081D78C /* URLErrorHandler.swift in Sources */,
 				BB9342A92BF4C2490081D78C /* Color+hex.swift in Sources */,
 				BB9342932BF392580081D78C /* TempSpeedometerView.swift in Sources */,
 				BB98C6542BF2063C00C17681 /* DataClient.swift in Sources */,
 				BB98C6362BF204B300C17681 /* AppMain.swift in Sources */,
 				BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */,
 				BB98C64C2BF205C400C17681 /* VideoSound.swift in Sources */,
+				BB93430A2BF4EF3F0081D78C /* URLRequest+Endpoint.swift in Sources */,
 				BB93427F2BF2124A0081D78C /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
