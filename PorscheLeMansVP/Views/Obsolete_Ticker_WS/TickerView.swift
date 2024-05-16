@@ -7,6 +7,19 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
+
+@Model
+final class TickerItem {
+    @Attribute(.unique)
+    var productId: String
+    var price: String
+    
+    init(productId: String, price: String) {
+        self.productId = productId
+        self.price = price
+    }
+}
 
 struct TickerView: View {
     
