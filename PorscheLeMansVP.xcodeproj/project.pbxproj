@@ -71,6 +71,7 @@
 		BB93434A2BF5FC0E0081D78C /* LineDataChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343492BF5FC0E0081D78C /* LineDataChartView.swift */; };
 		BB93434C2BF5FC3E0081D78C /* ChartDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434B2BF5FC3E0081D78C /* ChartDataPoint.swift */; };
 		BB93434E2BF600210081D78C /* LineChartWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434D2BF600210081D78C /* LineChartWrapperView.swift */; };
+		BB9343502BF61A7A0081D78C /* RotatePlatformHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434F2BF61A7A0081D78C /* RotatePlatformHandler.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -151,6 +152,7 @@
 		BB9343492BF5FC0E0081D78C /* LineDataChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDataChartView.swift; sourceTree = "<group>"; };
 		BB93434B2BF5FC3E0081D78C /* ChartDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataPoint.swift; sourceTree = "<group>"; };
 		BB93434D2BF600210081D78C /* LineChartWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWrapperView.swift; sourceTree = "<group>"; };
+		BB93434F2BF61A7A0081D78C /* RotatePlatformHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatePlatformHandler.swift; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				BB9342A82BF4C2490081D78C /* Color+hex.swift */,
 				BB9342AA2BF4C7890081D78C /* ViewModifiers.swift */,
 				BB93433B2BF5DD990081D78C /* Double+Round.swift */,
+				BB93434F2BF61A7A0081D78C /* RotatePlatformHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				BB9342A02BF4A26F0081D78C /* Date+String.swift in Sources */,
 				BB93428E2BF34C480081D78C /* TickerView.swift in Sources */,
 				BB93434C2BF5FC3E0081D78C /* ChartDataPoint.swift in Sources */,
+				BB9343502BF61A7A0081D78C /* RotatePlatformHandler.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,
 				BB98C6522BF205F700C17681 /* Loggable.swift in Sources */,
 				BB9343332BF5DCBB0081D78C /* TicksShape.swift in Sources */,
