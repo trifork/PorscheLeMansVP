@@ -5,10 +5,7 @@ import Observation
 import SwiftUI
 import CoreLocation
 
-@MainActor
-@Observable final class Racetrack {
-    public static let shared = Racetrack()
-    
+@Observable final class Racetrack {    
     private var trackEntity = Entity()
     private var mainContainer = Entity() // Containing track and cars
     private var trackContainer = Entity() // Containing track
@@ -18,17 +15,17 @@ import CoreLocation
     private let carViewModel = CarViewModel()
     private let track = TrackEntity()
     
+    @MainActor
     public func entity() async throws -> Entity {
         do {
             // Add track
             trackEntity = try await track.entity(trackViewModel: trackViewModel)
             trackContainer.addChild(trackEntity)
             
-            // Add cars to cars container
-            carViewModel.setupMockData()
+            // Get all cars
+            await carViewModel.setupMockData()
             
             for car in carViewModel.cars {
-                // Add all cars
                 carsContainer.addChild(car.entity)
             }
             
@@ -44,6 +41,7 @@ import CoreLocation
         }
     }
     
+    @MainActor
     public func updateCarPosition() {
         for car in carViewModel.cars {
             let referenceLocation = car.getReferenceLocation()
@@ -101,13 +99,11 @@ import CoreLocation
             }
             
             // Set car position and orientation animated
-            var carTransform = car.entity.transform
-            
-            let previousLapLocation: SIMD3<Float> = carTransform.translation
+            let previousLapLocation: SIMD3<Float> = car.entity.transform.translation
             let currentLapLocation: SIMD3<Float> = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
             
             if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
-                carTransform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
+                car.entity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
             }
             car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
         }
@@ -120,6 +116,8 @@ import CoreLocation
             }
         }
     }
+    
+    @MainActor
     public func addNewCarToTrack() {
         carViewModel.addNewCar()
         if let car = carViewModel.cars.last {
@@ -131,3 +129,4 @@ import CoreLocation
         return carViewModel.cars
     }
 }
+

@@ -12,22 +12,31 @@ import RealityKitContent
 import CoreLocation
 import ARKit
 
-@MainActor
 @Observable public final class CarViewModel {
     private var trackViewModel = TrackViewModel()
     
     public var cars: [Car] = []
-
-    public func setupMockData() {
-        let car1 = Car(visible: true, entity: createNewCar(color: .red), currentLocation: currentLocation())
-        cars = [car1]
+    
+    @MainActor
+    public func setupMockData() async {
+        do {
+            let porsche = try await createPorscheCar()
+            let car = Car(visible: true, entity: porsche, currentLocation: currentLocation())
+            cars.append(car)
+        } catch { }
+        
+        // Add more cars
+        // let car = Car(visible: true, entity: createNewCar(color: .red), currentLocation: currentLocation())
+        // cars.append(car)
     }
     
+    @MainActor
     public func addNewCar() {
         let car = Car(visible: true, entity: createNewCar(color: .cyan), currentLocation: currentLocation())
         cars.append(car)
     }
-        
+    
+    @MainActor
     private func currentLocation() -> ReferenceLocation {
         let latitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLongGPSFIARx ?? 0.0)
         let longitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLatGPSFIARx ?? 0.0)
@@ -35,7 +44,7 @@ import ARKit
         return ReferenceLocation(index: 0, latitude: latitude, longitude: longitude)
     }
 
-    public func createNewCar(color: UIColor) -> ModelEntity {
+    public func createNewCar(color: UIColor) -> Entity {
         let material = SimpleMaterial(color: color, isMetallic: false)
         
         let car = ModelEntity(mesh: .generateSphere(radius: 0.03), materials: [material])
@@ -45,11 +54,11 @@ import ARKit
     }
     
     @MainActor
-    public func createPorscheCar(id: String) async throws -> Entity {
+    public func createPorscheCar() async throws -> Entity {
         do {
-            let car = try await Entity(named: "Porsche_963", in: realityKitContentBundle)
-            car.name = "car_\(id)"
+            let car = try await Entity(named: trackViewModel.carName, in: realityKitContentBundle)
             car.components.set(ImageBasedLightReceiverComponent(imageBasedLight: car))
+            car.transform.scale *= trackViewModel.carScale
             return car
         } catch {
             return Entity()

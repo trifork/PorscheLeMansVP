@@ -15,6 +15,8 @@ struct RaceTrackImmersiveView: View {
     @State private var isMuted: Bool = VideoSound.defaultMuted
     @State private var didInitializedSceneEntity: Bool = false
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
+    @State private var racetrack = Racetrack()
+    @State private var moveCarTimer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
     
     private var didAppear: () -> Void
     private var didTapClose: () -> Void
@@ -27,9 +29,7 @@ struct RaceTrackImmersiveView: View {
     private let trackRotation: Float = 1.18
     private let trackScale: Float = 1/8
     private let trackHorizontalPosition: Float = -0.32
-    
-    @State private var moveCarTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
-    
+
     init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didEnterBackground: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
         self.mainContainer.position = SIMD3(x: 0.1, y: 1, z: -1.0)
         
@@ -54,7 +54,7 @@ struct RaceTrackImmersiveView: View {
     var body: some View {
         RealityView { content, attachments in
             // Add track and all cars
-            if let track = try? await Racetrack.shared.entity() {
+            if let track = try? await racetrack.entity() {
                 racetrackContainer.addChild(track)
             }
 
@@ -75,9 +75,9 @@ struct RaceTrackImmersiveView: View {
                 
                 //////////////// DEBUG COLLISIONS ///////////////////
                 HStack {
-                    ForEach(Racetrack.shared.cars()) { car in
+                    ForEach(racetrack.cars()) { car in
                         Button {
-                            Racetrack.shared.removeCarFromTrack(id: car.id)
+                            racetrack.removeCarFromTrack(id: car.id)
                         } label: {
                             Text(car.visible ? "Hide car" : "Show car")
                         }
@@ -85,7 +85,7 @@ struct RaceTrackImmersiveView: View {
                 }
                 
                 Button {
-                    Racetrack.shared.addNewCarToTrack()
+                    racetrack.addNewCarToTrack()
                 } label: {
                     Text("Add new car")
                 }
@@ -99,7 +99,7 @@ struct RaceTrackImmersiveView: View {
             didLoadSceneEntity()
         }
         .onReceive(moveCarTimer) { _ in
-            Racetrack.shared.updateCarPosition()
+            racetrack.updateCarPosition()
         }
         .onChange(of: scenePhase) { _, newPhase in
             switch newPhase {
