@@ -22,7 +22,7 @@ import SwiftUI
     }
     
     @MainActor
-    public func addNewCar(color: UIColor = .red) {
+    public func addNewCar(color: UIColor = UIColor.random) {
         let entity = carEntity.dotEntity(color: color)
         let car = Car(visible: true, entity: entity, currentLocation: currentLocation())
         cars.append(car)
@@ -47,3 +47,8 @@ import SwiftUI
     }
 }
 
+extension UIColor {
+    public static var random: UIColor {
+        return UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
+    }
+}

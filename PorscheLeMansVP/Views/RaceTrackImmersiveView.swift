@@ -16,7 +16,7 @@ struct RaceTrackImmersiveView: View {
     @State private var didInitializedSceneEntity: Bool = false
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
     @State private var racetrack = Racetrack()
-    @State private var moveCarTimer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
+    @State private var moveCarTimer = Timer.publish(every: 0.26, on: .main, in: .common).autoconnect()
     
     private var didAppear: () -> Void
     private var didTapClose: () -> Void
@@ -29,7 +29,6 @@ struct RaceTrackImmersiveView: View {
     private let trackRotation: Float = 1.18
     private let trackScale: Float = 1/8
     private let trackHorizontalPosition: Float = 0.12
-    
     
     private let platformHeight: Float = 0.005
     private let platformRadius: Float = 0.40
