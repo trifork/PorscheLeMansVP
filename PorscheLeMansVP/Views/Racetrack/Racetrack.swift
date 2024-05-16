@@ -5,8 +5,8 @@ import Observation
 import SwiftUI
 import CoreLocation
 
-@Observable
-final class Racetrack {
+@MainActor
+@Observable final class Racetrack {
     public static let shared = Racetrack()
     
     private var trackEntity = Entity()
@@ -18,7 +18,6 @@ final class Racetrack {
     private let carViewModel = CarViewModel()
     private let track = TrackEntity()
     
-    @MainActor
     public func entity() async throws -> Entity {
         do {
             // Add track

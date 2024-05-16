@@ -12,25 +12,34 @@ import RealityKitContent
 import CoreLocation
 import ARKit
 
+@MainActor
 @Observable public final class CarViewModel {
     private var trackViewModel = TrackViewModel()
     
     public var cars: [Car] = []
 
     public func setupMockData() {
-        cars = CarsMockData.shared.cars()
+        let car1 = Car(visible: true, entity: createNewCar(color: .red), currentLocation: currentLocation())
+        cars = [car1]
     }
     
-    public func addNewCar() {        
-        cars.append(CarsMockData.shared.newCar())
+    public func addNewCar() {
+        let car = Car(visible: true, entity: createNewCar(color: .cyan), currentLocation: currentLocation())
+        cars.append(car)
     }
-    
-    public func createNewCar(color: UIColor, id: String) -> ModelEntity {
+        
+    private func currentLocation() -> ReferenceLocation {
+        let latitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLongGPSFIARx ?? 0.0)
+        let longitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLatGPSFIARx ?? 0.0)
+        
+        return ReferenceLocation(index: 0, latitude: latitude, longitude: longitude)
+    }
+
+    public func createNewCar(color: UIColor) -> ModelEntity {
         let material = SimpleMaterial(color: color, isMetallic: false)
         
         let car = ModelEntity(mesh: .generateSphere(radius: 0.03), materials: [material])
         car.generateCollisionShapes(recursive: true)
-        car.name = "car_\(id)"
 
         return car
     }
@@ -56,7 +65,5 @@ import ARKit
         }
         return nil
     }
-    
-   
 }
 
