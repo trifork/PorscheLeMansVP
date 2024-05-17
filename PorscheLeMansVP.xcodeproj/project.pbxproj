@@ -86,6 +86,7 @@
 		BB93435B2BF73C500081D78C /* lemans-ws.json in Resources */ = {isa = PBXBuildFile; fileRef = BB93435A2BF73C500081D78C /* lemans-ws.json */; };
 		BB93435D2BF73D570081D78C /* WebSocketEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */; };
 		BB9343602BF73F600081D78C /* SocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435F2BF73F600081D78C /* SocketResponse.swift */; };
+		BB9343622BF765B70081D78C /* RaceTrackToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343612BF765B70081D78C /* RaceTrackToolbarView.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -181,6 +182,7 @@
 		BB93435A2BF73C500081D78C /* lemans-ws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lemans-ws.json"; sourceTree = "<group>"; };
 		BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndpoint.swift; sourceTree = "<group>"; };
 		BB93435F2BF73F600081D78C /* SocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketResponse.swift; sourceTree = "<group>"; };
+		BB9343612BF765B70081D78C /* RaceTrackToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceTrackToolbarView.swift; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				BB9343292BF5DBA50081D78C /* Speedometer */,
 				BB9342792BF2124A0081D78C /* VideoPlayer */,
 				BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */,
+				BB9343612BF765B70081D78C /* RaceTrackToolbarView.swift */,
 				BB98C6582BF206E900C17681 /* WelcomeView.swift */,
 				BB9342772BF211F50081D78C /* DashboardView.swift */,
 			);
@@ -684,6 +687,7 @@
 				BB9343152BF52F9F0081D78C /* CarResponse.swift in Sources */,
 				BB9342762BF20F1B0081D78C /* Materials.swift in Sources */,
 				BB98C6572BF206B600C17681 /* RaceDataItem.swift in Sources */,
+				BB9343622BF765B70081D78C /* RaceTrackToolbarView.swift in Sources */,
 				BB9342742BF20CA40081D78C /* Assets.swift in Sources */,
 				BB98C6512BF205F700C17681 /* Collection+Safe.swift in Sources */,
 				BB9343382BF5DD380081D78C /* AccelerationMaskView.swift in Sources */,
