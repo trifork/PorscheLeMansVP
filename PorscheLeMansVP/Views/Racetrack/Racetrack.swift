@@ -19,12 +19,16 @@ import CoreLocation
             // Add track
             trackEntity = try await track.entity(trackViewModel: trackViewModel)
             trackContainer.addChild(trackEntity)
-            
+           
             // Get all cars
             await carViewModel.setupMockData()
             
             for car in carViewModel.cars {
-                carsContainer.addChild(car.entity)
+                let carInfoContainer = ModelEntity(mesh: MeshResource.generateBox(size:0))
+                carInfoContainer.name = "CarInfoContainer_\(car.id)"
+                carInfoContainer.addChild(car.entity)
+                
+                carsContainer.addChild(carInfoContainer)
             }
             
             // Add track and cars to main container
@@ -34,7 +38,7 @@ import CoreLocation
             return mainContainer
             
         } catch {
-            print("Error in RealityView's make: \(error)")
+            log(message: "Error in RealityView's make: \(error)", level: .error)
             fatalError()
         }
     }
@@ -44,15 +48,14 @@ import CoreLocation
         for car in carViewModel.cars {
             let modelEntity = car.entity
             let referenceLocation = car.getReferenceLocation()
-            let currentLocation = car.currentLocation
             let latitude = referenceLocation.latitude
             let longitude = referenceLocation.longitude
             
             // show or hide a car
             modelEntity.isEnabled = car.visible
    
-//            if currentLocation.index != car.currentIndex {
-//                if currentLocation.index > 0 {
+//            if car.currentLocation.index != car.currentIndex {
+//                if car.currentLocation.index > 0 {
 //                    let currentGPSLocation = CLLocation(latitude: latitude, longitude: longitude)
 //                    let distance = currentGPSLocation.distance(from: CLLocation(latitude: referenceLocation.latitude, longitude: referenceLocation.longitude))
 //                    
@@ -115,7 +118,12 @@ import CoreLocation
 //            modelEntity.playAnimation(animationResource)
             
             // Move car without animations
-             car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+            //car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+            
+            if let carInfo = car.entity.parent {
+                carInfo.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+            }
+            
         }
     }
     
@@ -130,5 +138,14 @@ import CoreLocation
     public func cars() -> [Car] {
         return carViewModel.cars
     }
+    
+    public func carEntity(by id: String) -> Entity? {
+        return carViewModel.cars.first(where: { $0.id == id })?.entity
+    }
+    
+    public func carInfoEntity(by id: String) -> Entity? {
+        return carsContainer.children.first(where: { $0.name == "CarInfoContainer_\(id)" })
+    }
+    
 }
 

@@ -112,6 +112,21 @@ struct RaceTrackImmersiveView: View {
                 mainContainer.addChild(toolbar)
             }
             
+            // Car info
+            for raceCar in DataClient.shared.getOwnCars() {
+                if let carInfo = attachments.entity(for: "CarInfo_\(raceCar.carId)") {
+                    if let carEntity = racetrack.carEntity(by: raceCar.carId), let container = racetrack.carInfoEntity(by: raceCar.carId) {
+                        carInfo.name = "CarInfo_\(raceCar.carId)"
+                        carInfo.position = [carEntity.position.x, 1.0, carEntity.position.z]
+                        carInfo.scale = SIMD3<Float>(repeating: 5)
+                        container.addChild(carInfo)
+                        
+                        let carInfoLine: ModelEntity = LineEntity.lineFrom(carEntity, to: carInfo)
+                        container.addChild(carInfoLine)
+                    }
+                }
+            }
+            
             content.add(mainContainer)
         } update: { _, attachments in
             Task {
@@ -133,6 +148,11 @@ struct RaceTrackImmersiveView: View {
                 .offset(z: 131)
             }
             
+            ForEach(DataClient.shared.getOwnCars()) { raceCar in
+                Attachment(id: "CarInfo_\(raceCar.carId)") {
+                    Text("TODO: Missing Car Info")
+                }
+            }
         }
         .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)
             .targetedToAnyEntity()
