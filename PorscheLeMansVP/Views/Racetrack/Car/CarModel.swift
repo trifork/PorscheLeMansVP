@@ -1,14 +1,17 @@
 import Foundation
 import RealityKit
 
-public class Car: Identifiable {
-    public var id = UUID()
+public class Car {
+    public var id: String
+    public var own:Bool
     public var visible:Bool
     public var entity: Entity
     public var currentLocation: ReferenceLocation
     public var currentIndex: Int
     
-    init(visible: Bool, entity: Entity, currentLocation: ReferenceLocation, currentIndex: Int = 0) {
+    init(id: String, own: Bool, visible: Bool, entity: Entity, currentLocation: ReferenceLocation, currentIndex: Int = 0) {
+        self.id = id
+        self.own = own
         self.visible = visible
         self.entity = entity
         self.currentLocation = currentLocation

@@ -127,7 +127,7 @@ struct RaceTrackImmersiveView: View {
                     RaceTrackToolbarView(isMuted: $isMuted, didTapClose: {
                         didTapClose()
                     }, didTapShowCompetitor: {
-                        
+                        racetrack.hideCompetitorCars(visible: false)
                     })
                 }
                 .offset(z: 131)

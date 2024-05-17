@@ -119,22 +119,14 @@ import CoreLocation
         }
     }
     
-    public func removeCarFromTrack(id: UUID) {
+    public func hideCompetitorCars(visible: Bool) {
         carViewModel.cars.forEach { car in
-            if car.id == id {
-                car.visible = !car.visible
+            if car.own == false {
+                car.visible = visible
             }
         }
     }
-    
-    @MainActor
-    public func addNewCarToTrack() {
-        carViewModel.addNewCar()
-        if let car = carViewModel.cars.last {
-            carsContainer.addChild(car.entity)
-        }
-    }
-    
+        
     public func cars() -> [Car] {
         return carViewModel.cars
     }

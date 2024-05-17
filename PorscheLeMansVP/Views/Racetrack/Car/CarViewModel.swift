@@ -13,7 +13,7 @@ import SwiftUI
         do {
             for ownCar in DataClient.shared.getOwnCars() {
                 let entity = try await carEntity.entity(trackViewModel: trackViewModel)
-                let car = Car(visible: true, entity: entity, currentLocation: currentLocation(for: carIndex), currentIndex: carIndex)
+                let car = Car(id: ownCar.carId, own: true, visible: true, entity: entity, currentLocation: currentLocation(for: carIndex), currentIndex: carIndex)
                 cars.append(car)
                 
                 carIndex = Int.random(in: 10...120)
@@ -23,7 +23,7 @@ import SwiftUI
         carIndex = 0
         
         for competitorCar in DataClient.shared.getCompetitorCars() {
-            addNewCar(index: carIndex)
+            addNewCar(index: carIndex, id: competitorCar.carId)
             carIndex = Int.random(in: 22...79)
         }
         
@@ -35,9 +35,9 @@ import SwiftUI
     }
     
     @MainActor
-    public func addNewCar(color: UIColor = UIColor.random, index: Int = 0) {
+    public func addNewCar(color: UIColor = UIColor.random, index: Int = 0, id: String) {
         let entity = carEntity.dotEntity(color: color)
-        let car = Car(visible: true, entity: entity, currentLocation: currentLocation(), currentIndex: index)
+        let car = Car(id: id, own: false, visible: true, entity: entity, currentLocation: currentLocation(), currentIndex: index)
         cars.append(car)
     }
     
