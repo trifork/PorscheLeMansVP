@@ -113,24 +113,6 @@ struct RaceTrackImmersiveView: View {
         } attachments: {
             Attachment(id: "Dashboard") {
                 DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted)
-                
-                //////////////// DEBUG  ///////////////////
-                HStack {
-                    ForEach(racetrack.cars()) { car in
-                        Button {
-                            racetrack.removeCarFromTrack(id: car.id)
-                        } label: {
-                            Text(car.visible ? "Hide car" : "Show car")
-                        }
-                    }
-                }
-                
-                Button {
-                    racetrack.addNewCarToTrack()
-                } label: {
-                    Text("Add new car")
-                }
-                //////////////// DEBUG  ///////////////////
             }
         }
         .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)

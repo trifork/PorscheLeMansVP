@@ -51,17 +51,17 @@ import CoreLocation
             // show or hide a car
             modelEntity.isEnabled = car.visible
    
-            if currentLocation.index != car.currentIndex {
-                if currentLocation.index > 0 {
-                    let currentGPSLocation = CLLocation(latitude: latitude, longitude: longitude)
-                    let distance = currentGPSLocation.distance(from: CLLocation(latitude: referenceLocation.latitude, longitude: referenceLocation.longitude))
-                    
-                    if distance == 0.0 {
-                        // Skipping location update
-                        return
-                    }
-                }
-            }
+//            if currentLocation.index != car.currentIndex {
+//                if currentLocation.index > 0 {
+//                    let currentGPSLocation = CLLocation(latitude: latitude, longitude: longitude)
+//                    let distance = currentGPSLocation.distance(from: CLLocation(latitude: referenceLocation.latitude, longitude: referenceLocation.longitude))
+//                    
+//                    if distance == 0.0 {
+//                        // Skipping location update
+//                        return
+//                    }
+//                }
+//            }
             
             let trackCoordinate = CoordinateConverter.convert(latitude: latitude, longitude: longitude, referenceLocation: trackViewModel.trackReferenceLocation, xFactor: trackViewModel.xFactor, zFactor: trackViewModel.zFactor)
             let currentCarPosition = car.entity.position
@@ -107,15 +107,15 @@ import CoreLocation
                       
             
             // Animate car
-            var transform = modelEntity.transform
-            transform.translation = SIMD3<Float>(trackCoordinate.x, carYPos, trackCoordinate.z)
-            let animationDefinition = FromToByAnimation(to: transform, bindTarget: .transform)
-            let animationViewDefinition = AnimationView(source: animationDefinition, delay: 0, speed: 0.3)
-            let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
-            modelEntity.playAnimation(animationResource)
+//            var transform = modelEntity.transform
+//            transform.translation = SIMD3<Float>(trackCoordinate.x, carYPos, trackCoordinate.z)
+//            let animationDefinition = FromToByAnimation(to: transform, bindTarget: .transform)
+//            let animationViewDefinition = AnimationView(source: animationDefinition, delay: 0, speed: 0.3)
+//            let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
+//            modelEntity.playAnimation(animationResource)
             
             // Move car without animations
-            // car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+             car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
         }
     }
     

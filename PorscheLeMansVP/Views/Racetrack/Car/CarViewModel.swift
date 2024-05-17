@@ -9,12 +9,25 @@ import SwiftUI
     
     @MainActor
     public func setupMockData() async {
+        var carIndex = 0
         do {
-            let entity = try await carEntity.entity(trackViewModel: trackViewModel)
-            let car = Car(visible: true, entity: entity, currentLocation: currentLocation())
-            cars.append(car)
+            for ownCar in DataClient.shared.getOwnCars() {
+                let entity = try await carEntity.entity(trackViewModel: trackViewModel)
+                let car = Car(visible: true, entity: entity, currentLocation: currentLocation(for: carIndex), currentIndex: carIndex)
+                cars.append(car)
+                
+                carIndex = Int.random(in: 10...120)
+            }
         } catch { }
         
+        carIndex = 0
+        
+        for competitorCar in DataClient.shared.getCompetitorCars() {
+            addNewCar(index: carIndex)
+            carIndex = Int.random(in: 22...79)
+        }
+        
+    
         // Add more cars
         // addNewCar(color: .cyan)
         // addNewCar(color: .yellow)
@@ -22,18 +35,18 @@ import SwiftUI
     }
     
     @MainActor
-    public func addNewCar(color: UIColor = UIColor.random) {
+    public func addNewCar(color: UIColor = UIColor.random, index: Int = 0) {
         let entity = carEntity.dotEntity(color: color)
-        let car = Car(visible: true, entity: entity, currentLocation: currentLocation())
+        let car = Car(visible: true, entity: entity, currentLocation: currentLocation(), currentIndex: index)
         cars.append(car)
     }
     
     @MainActor
-    private func currentLocation() -> ReferenceLocation {
-        let latitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLongGPSFIARx ?? 0.0)
-        let longitude = Double(DataClient.shared.getCSVItem(for: 0)?.aLatGPSFIARx ?? 0.0)
+    private func currentLocation(for index: Int = 0) -> ReferenceLocation {
+        let latitude = Double(DataClient.shared.getCSVItem(for: index)?.aLongGPSFIARx ?? 0.0)
+        let longitude = Double(DataClient.shared.getCSVItem(for: index)?.aLatGPSFIARx ?? 0.0)
         
-        return ReferenceLocation(index: 0, latitude: latitude, longitude: longitude)
+        return ReferenceLocation(index: index, latitude: latitude, longitude: longitude)
     }
 
     public func calculateAngle(previous: SIMD3<Float>, current: SIMD3<Float>) -> Float? {

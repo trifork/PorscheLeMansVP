@@ -22,7 +22,7 @@ public class Car: Identifiable {
             self.currentIndex += 1
             return referenceLocation
         } else {
-            self.currentIndex += 1
+            self.currentIndex = 0
             return currentLocation
         }
     }
