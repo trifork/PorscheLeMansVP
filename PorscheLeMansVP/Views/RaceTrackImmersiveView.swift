@@ -26,9 +26,9 @@ struct RaceTrackImmersiveView: View {
     private var mainContainer = Entity()
     private var racetrackContainer = Entity()
     
-    private let trackRotation: Float = 1.18
+    private let trackRotation: Float = 1.48
     private let trackScale: Float = 1/8
-    private let trackHorizontalPosition: Float = 0.12
+    private let trackHorizontalPosition: Float = -0.64
     
     private let platformHeight: Float = 0.005
     private let platformRadius: Float = 0.40
@@ -36,7 +36,7 @@ struct RaceTrackImmersiveView: View {
 
     private let carsContainer = Entity()
     private let carsPlatform: ModelEntity
-    private var carsPlatformIntialDegrees: Float = -135
+    private var carsPlatformIntialDegrees: Float = 135
     @State private var carsRotationHandler = RotatePlatformHandler()
     
     @State private var isCompetitorsVisible: Bool = true
@@ -72,7 +72,7 @@ struct RaceTrackImmersiveView: View {
         carsContainer.addChild(carsPlatform)
 
         carsContainer.scale *= platformContainerScale
-        carsContainer.position = [-0.55, -0.01, -0.1]
+        carsContainer.position = [0.69, -0.01, -0.1]
         mainContainer.addChild(carsContainer)
     }
     
