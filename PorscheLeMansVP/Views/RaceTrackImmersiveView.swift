@@ -104,6 +104,13 @@ struct RaceTrackImmersiveView: View {
                 dashboard.position = [0.1, 0.5, -0.8]
                 mainContainer.addChild(dashboard)
             }
+
+            if let toolbar = attachments.entity(for: "Toolbar") {
+                toolbar.name = "Dashboard"
+                toolbar.position = [-0.04, 0.13, -0.4]
+                toolbar.transform.rotation = simd_quatf(angle: -0.5, axis: SIMD3<Float>(1,0,0))
+                mainContainer.addChild(toolbar)
+            }
             
             content.add(mainContainer)
         } update: { _, attachments in
@@ -132,6 +139,18 @@ struct RaceTrackImmersiveView: View {
                 }
                 //////////////// DEBUG  ///////////////////
             }
+            
+            Attachment(id: "Toolbar") {
+                ZStack {
+                    RaceTrackToolbarView(isMuted: $isMuted, didTapClose: {
+                        didTapClose()
+                    }, didTapShowCompetitor: {
+                        
+                    })
+                }
+                .offset(z: 131)
+            }
+            
         }
         .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)
             .targetedToAnyEntity()
