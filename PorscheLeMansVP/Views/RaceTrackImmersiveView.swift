@@ -38,6 +38,8 @@ struct RaceTrackImmersiveView: View {
     private let carsPlatform: ModelEntity
     private var carsPlatformIntialDegrees: Float = -135
     @State private var carsRotationHandler = RotatePlatformHandler()
+    
+    @State private var isCompetitorsVisible: Bool = true
         
     init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didEnterBackground: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
         self.mainContainer.position = SIMD3(x: 0.1, y: 1, z: -1.0)
@@ -139,10 +141,11 @@ struct RaceTrackImmersiveView: View {
             
             Attachment(id: "Toolbar") {
                 ZStack {
-                    RaceTrackToolbarView(isMuted: $isMuted, didTapClose: {
+                    RaceTrackToolbarView(isMuted: $isMuted, isCompetitorsVisible: $isCompetitorsVisible, didTapClose: {
                         didTapClose()
                     }, didTapShowCompetitor: {
-                        racetrack.hideCompetitorCars(visible: false)
+                        isCompetitorsVisible.toggle()
+                        racetrack.hideCompetitorCars(visible: isCompetitorsVisible)
                     })
                 }
                 .offset(z: 131)

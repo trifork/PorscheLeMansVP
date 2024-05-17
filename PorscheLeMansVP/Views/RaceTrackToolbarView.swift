@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RaceTrackToolbarView: View {
     @Binding var isMuted: Bool
+    @Binding var isCompetitorsVisible: Bool
+    
     var didTapClose: () -> Void
     var didTapShowCompetitor: () -> Void
     
@@ -19,9 +21,9 @@ struct RaceTrackToolbarView: View {
                 Button(action: {
                     didTapShowCompetitor()
                 }, label: {
-                    Image(systemName: "eye") // eye.slash
+                    Image(systemName: isCompetitorsVisible == true ? "eye.slash" : "eye")
                         .contentShape(Rectangle())
-                    Text("Show competitors")
+                    Text(isCompetitorsVisible == true ? "Hide competitors" : "Show competitors")
                 })
                 
                 Spacer().frame(width: 90)
