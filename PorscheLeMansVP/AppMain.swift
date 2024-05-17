@@ -30,17 +30,34 @@ struct AppMain: App {
                     Task {
                         DataClient.shared.deleteAll()
 
-                        await CSVClient.shared.prefill {
+                        await NetworkClient.shared.getCars { cars in
+                            DataClient.shared.addCars(cars)
+                    
+                            /*webSocketClient.connect()
+                            
                             Task {
-                                
-                                webSocketClient.connect()
-                                
                                 await openImmersiveSpace(id: "RaceTrackImmersiveView")
+                            }*/
+                    
+                            // Remove after we have a websocket op and running
+                            Task {
+                                await CSVClient.shared.prefill {
+                                    Task {
+                                        
+                                        webSocketClient.connect()
+                                        
+                                        await openImmersiveSpace(id: "RaceTrackImmersiveView")
+                                    }
+                                } failure: { message in
+                                    log(message: message, level: .error)
+                                    isLoading = false
+                                }
                             }
                         } failure: { message in
                             log(message: message, level: .error)
                             isLoading = false
                         }
+                        
                     }
                 }
                 .disabled(isLoading)

@@ -9,21 +9,20 @@ import Foundation
 
 extension NetworkClient {
     
-    func getCars(_ success: @escaping () -> Void, failure: @escaping (_ message: String) -> Void) {
+    @MainActor public func getCars(_ success: @escaping (_ cars: [CarResponse]) -> Void, failure: @escaping (_ message: String) -> Void) async {
         
         // MOCK
         if let data = JSONParser<CarResponse>.read(file: "racecars") {
             do {
                 let parser = JSONParser<[CarResponse]>()
-                let response = try parser.parse(data: data)
-                
-                success()
+                let model = try parser.parse(data: data)
+                success(model)
             } catch let error {
                 log(message: "Failed! \(error.localizedDescription)", level: .error)
                 failure(error.localizedDescription)
             }
         } else {
-            log(message: "Couldn't find/parse casecar json)", level: .error)
+            log(message: "Couldn't find/parse casecar json", level: .error)
             failure("Couldn't find/parse casecar json")
         }
         

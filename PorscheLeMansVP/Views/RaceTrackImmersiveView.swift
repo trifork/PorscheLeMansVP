@@ -82,19 +82,21 @@ struct RaceTrackImmersiveView: View {
             
             // Cars
             if let carEntity = try? await Entity(named: "Porsche_963", in: realityKitContentBundle) {
-                carEntity.position = [carEntity.position.x, platformHeight / platformContainerScale, carEntity.position.z]
-                carsContainer.addChild(carEntity)
                 
-                let car2 = carEntity.clone(recursive: true)
-                car2.position = [carEntity.position.x - 2.75, carEntity.position.y, carEntity.position.z + 0.95]
-                carsContainer.addChild(car2)
-                
-                let car3 = carEntity.clone(recursive: true)
-                car3.position = [carEntity.position.x + 2.75, carEntity.position.y, carEntity.position.z - 0.95]
-                carsContainer.addChild(car3)
+                var xScalar: Float = -2.75
+                var zScalar: Float = 0.95
+                for raceCar in DataClient.shared.getOwnCars() {
+                    let car = carEntity.clone(recursive: true)
+                    car.name = "DigitalTwin_RaceCar_\(raceCar.carId)"
+                    car.position = [carEntity.position.x + xScalar, carEntity.position.y, carEntity.position.z + zScalar]
+                    carsContainer.addChild(car)
+                    
+                    xScalar += 2.75
+                    zScalar -= 0.95
+                }
                 
                 // Platform rotation
-                self.carsRotationHandler.configure(rotatingObject: carsContainer, platformSize: platformRadius, initialRotationDegrees: carsPlatformIntialDegrees)
+                carsRotationHandler.configure(rotatingObject: carsContainer, platformSize: platformRadius, initialRotationDegrees: carsPlatformIntialDegrees)
             }
             
             if let dashboard = attachments.entity(for: "Dashboard") {

@@ -80,6 +80,12 @@
 		BB93434C2BF5FC3E0081D78C /* ChartDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434B2BF5FC3E0081D78C /* ChartDataPoint.swift */; };
 		BB93434E2BF600210081D78C /* LineChartWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434D2BF600210081D78C /* LineChartWrapperView.swift */; };
 		BB9343502BF61A7A0081D78C /* RotatePlatformHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93434F2BF61A7A0081D78C /* RotatePlatformHandler.swift */; };
+		BB9343542BF6318A0081D78C /* RaceCarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343532BF6318A0081D78C /* RaceCarItem.swift */; };
+		BB9343562BF631BB0081D78C /* RaceCarDriverItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343552BF631BB0081D78C /* RaceCarDriverItem.swift */; };
+		BB9343582BF633DC0081D78C /* DataClient+Cars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343572BF633DC0081D78C /* DataClient+Cars.swift */; };
+		BB93435B2BF73C500081D78C /* lemans-ws.json in Resources */ = {isa = PBXBuildFile; fileRef = BB93435A2BF73C500081D78C /* lemans-ws.json */; };
+		BB93435D2BF73D570081D78C /* WebSocketEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */; };
+		BB9343602BF73F600081D78C /* SocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435F2BF73F600081D78C /* SocketResponse.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -169,6 +175,12 @@
 		BB93434B2BF5FC3E0081D78C /* ChartDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataPoint.swift; sourceTree = "<group>"; };
 		BB93434D2BF600210081D78C /* LineChartWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWrapperView.swift; sourceTree = "<group>"; };
 		BB93434F2BF61A7A0081D78C /* RotatePlatformHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatePlatformHandler.swift; sourceTree = "<group>"; };
+		BB9343532BF6318A0081D78C /* RaceCarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceCarItem.swift; sourceTree = "<group>"; };
+		BB9343552BF631BB0081D78C /* RaceCarDriverItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceCarDriverItem.swift; sourceTree = "<group>"; };
+		BB9343572BF633DC0081D78C /* DataClient+Cars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataClient+Cars.swift"; sourceTree = "<group>"; };
+		BB93435A2BF73C500081D78C /* lemans-ws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lemans-ws.json"; sourceTree = "<group>"; };
+		BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndpoint.swift; sourceTree = "<group>"; };
+		BB93435F2BF73F600081D78C /* SocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketResponse.swift; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -284,7 +296,9 @@
 		BB9342882BF339C80081D78C /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
+				BB93435E2BF73F550081D78C /* Models */,
 				BB9342892BF339E60081D78C /* WebSocketClient.swift */,
+				BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -300,7 +314,6 @@
 		BB9342942BF48F0D0081D78C /* CSV */ = {
 			isa = PBXGroup;
 			children = (
-				BB9342952BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv */,
 				BB9342972BF48F4C0081D78C /* CSVClient.swift */,
 				BB9342992BF490200081D78C /* CSVFormatter.swift */,
 				BB93429B2BF491A80081D78C /* CSVDataItem.swift */,
@@ -320,7 +333,6 @@
 		BB9342FF2BF4EC750081D78C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BB9343262BF5D2DA0081D78C /* Mock */,
 				BB93431F2BF531210081D78C /* Parser */,
 				BB9343132BF52F7F0081D78C /* Models */,
 				BB9343122BF52F6B0081D78C /* HTTP */,
@@ -388,14 +400,6 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
-		BB9343262BF5D2DA0081D78C /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				BB9343272BF5D4320081D78C /* racecars.json */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
 		BB9343292BF5DBA50081D78C /* Speedometer */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +443,24 @@
 				BB93434D2BF600210081D78C /* LineChartWrapperView.swift */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		BB9343592BF73C380081D78C /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343272BF5D4320081D78C /* racecars.json */,
+				BB93435A2BF73C500081D78C /* lemans-ws.json */,
+				BB9342952BF48F310081D78C /* lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7.csv */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		BB93435E2BF73F550081D78C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB93435F2BF73F600081D78C /* SocketResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BB98C6252BF204B300C17681 = {
@@ -496,6 +518,7 @@
 				BB98C6532BF2063C00C17681 /* DataClient.swift */,
 				BB9342852BF239CB0081D78C /* DataClient+Dummy.swift */,
 				BB93428F2BF390240081D78C /* DataClient+Validator.swift */,
+				BB9343572BF633DC0081D78C /* DataClient+Cars.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -539,6 +562,8 @@
 		BB98C6552BF2069800C17681 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BB9343532BF6318A0081D78C /* RaceCarItem.swift */,
+				BB9343552BF631BB0081D78C /* RaceCarDriverItem.swift */,
 				BB98C6562BF206B600C17681 /* RaceDataItem.swift */,
 				BB9342802BF237430081D78C /* RaceContestantItem.swift */,
 			);
@@ -548,6 +573,7 @@
 		BB98C65A2BF20B0300C17681 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB9343592BF73C380081D78C /* MockData */,
 				BB9342A32BF4B2350081D78C /* Video */,
 				BB98C63B2BF204B400C17681 /* Assets.xcassets */,
 				BB93425F2BF20BD30081D78C /* Fonts */,
@@ -626,6 +652,7 @@
 				BB93426B2BF20BF30081D78C /* PorscheNext-SemiBold.otf in Resources */,
 				BB9343282BF5D4320081D78C /* racecars.json in Resources */,
 				BB93426F2BF20BF30081D78C /* PorscheNext-Thin.otf in Resources */,
+				BB93435B2BF73C500081D78C /* lemans-ws.json in Resources */,
 				BB9342712BF20BF30081D78C /* PorscheNext-SemiBoldItalic.otf in Resources */,
 				BB9342A52BF4B2350081D78C /* VP_LeMans_Lap2.mp4 in Resources */,
 				BB9342722BF20BF30081D78C /* PorscheNext-Regular.otf in Resources */,
@@ -681,6 +708,8 @@
 				BB9343032BF4ECF80081D78C /* CarEndpoint.swift in Sources */,
 				BB9343472BF5F5120081D78C /* ThermometerType.swift in Sources */,
 				BB93431E2BF530E90081D78C /* HTTPClientErrorHandler.swift in Sources */,
+				BB9343562BF631BB0081D78C /* RaceCarDriverItem.swift in Sources */,
+				BB9343582BF633DC0081D78C /* DataClient+Cars.swift in Sources */,
 				61CFF8D62BF61F4A00936B88 /* CarModel.swift in Sources */,
 				BB93433A2BF5DD640081D78C /* AccelerationView.swift in Sources */,
 				BB93432D2BF5DC050081D78C /* TicksModel.swift in Sources */,
@@ -698,6 +727,7 @@
 				BB9343432BF5F3260081D78C /* ThermometerTextAlignment.swift in Sources */,
 				BB9342902BF390240081D78C /* DataClient+Validator.swift in Sources */,
 				61CFF8DA2BF61F4A00936B88 /* TrackViewModel.swift in Sources */,
+				BB9343602BF73F600081D78C /* SocketResponse.swift in Sources */,
 				BB98C64A2BF2050F00C17681 /* AppDelegate.swift in Sources */,
 				BB9343012BF4EC9E0081D78C /* NetworkClient.swift in Sources */,
 				BB93432F2BF5DC2F0081D78C /* TicksTextModel.swift in Sources */,
@@ -707,8 +737,10 @@
 				BB98C6542BF2063C00C17681 /* DataClient.swift in Sources */,
 				BB98C6362BF204B300C17681 /* AppMain.swift in Sources */,
 				BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */,
+				BB93435D2BF73D570081D78C /* WebSocketEndpoint.swift in Sources */,
 				BB98C64C2BF205C400C17681 /* VideoSound.swift in Sources */,
 				BB93430A2BF4EF3F0081D78C /* URLRequest+Endpoint.swift in Sources */,
+				BB9343542BF6318A0081D78C /* RaceCarItem.swift in Sources */,
 				61CFF8D52BF61F4A00936B88 /* CarEntity.swift in Sources */,
 				BB93433F2BF5F2E90081D78C /* IconTextView.swift in Sources */,
 				BB93427F2BF2124A0081D78C /* VideoPlayerView.swift in Sources */,
