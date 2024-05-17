@@ -40,7 +40,6 @@ public struct LineDataChartView: View {
                 Spacer().frame(height: 22)
                 
                 Chart {
-                    
                     ForEach(Array(items.enumerated()), id: \.offset) { index, dataPoints in
                         ForEach(dataPoints) {
                             LineMark(
@@ -54,7 +53,6 @@ public struct LineDataChartView: View {
                         }
                     }
                 }
-                .animation(.linear(duration: 1.0), value: currentIndex)
                 .chartForegroundStyleScale(range: colors)
                 .chartLegend(showLegends)
                 .chartYAxis() {

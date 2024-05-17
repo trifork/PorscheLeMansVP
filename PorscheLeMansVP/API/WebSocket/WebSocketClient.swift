@@ -9,19 +9,20 @@ import Foundation
 
 class WebSocketClient: ObservableObject {
     private var socket: URLSessionWebSocketTask?
-    private let url = URL(string: "wss://ws-feed.exchange.coinbase.com")
+    private let endpoint: Endpoint?
     
-    init() { }
+    init() { 
+        endpoint = WebSocketEndpoint.connect
+    }
     
     deinit {
         disconnect()
     }
     
     func connect() {
-        guard let url = url else { return }
+        guard let endpoint = endpoint else { return }
         
-        let request = URLRequest(url: url)
-        //request.addValue("abc123", forHTTPHeaderField: "Authorization")
+        let request = URLRequest(endpoint: endpoint)
         
         let session = URLSession(configuration: .default)
         socket = session.webSocketTask(with: request)
@@ -84,17 +85,36 @@ class WebSocketClient: ObservableObject {
                 switch message {
                 case .string(let text):
                     self?.handleMessage(text)
+                    
+                    /*
+                    guard let data = value.data(using: .utf8), data.isEmpty == false else { return }
+                    log(message: "Received text message", level: .debug)
+                    handleSocketData(data)*/
                 case .data(let data):
-                    log(message: "Received data: \(data)", level: .debug)
                     if let text = String(data: data, encoding: .utf8) {
                         self?.handleMessage(text)
                     }
+  
+                    /*log(message: "Received data message", level: .debug)
+                    handleSocketData(data)*/
                 default:
                     break
                 }
                 
                 self?.readMessage() // Keep listening
             }
+        }
+    }
+    
+    private func handleSocketData(_ data: Data) {
+        do {
+            let parser = JSONParser<SocketResponse>()
+            let socketResponse: SocketResponse = try parser.parse(data: data)
+  
+            // Database<Object>(.employee).write(object: responseData)
+            
+        } catch let error {
+            log(message: "Error while parsing data received: \(error)", level: .error)
         }
     }
     

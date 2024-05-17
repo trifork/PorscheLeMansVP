@@ -14,12 +14,6 @@ public class CSVClient {
     @MainActor
     public func prefill(_ success: @escaping () -> Void, failure: @escaping (_ message: String) -> Void) async {
         
-        /*NetworkClient.shared.getCars {
-            print("asd")
-        } failure: { message in
-            print("asd")
-        }*/        
-        
         let fileName = "lap_7f7c3f41-0e9b-46a4-ac91-8df0908e48c7"
 
         log(message: "CSV: parcing \(fileName)", level: .info)

@@ -17,7 +17,9 @@ public class DataClient {
             RaceDataItem.self,
             RaceContestantItem.self,
             TickerItem.self,
-            CSVDataItem.self
+            CSVDataItem.self,
+            RaceCarItem.self,
+            RaceCarDriverItem.self
         ])
         
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
@@ -36,6 +38,8 @@ public class DataClient {
         try? modelContainer.mainContext.delete(model: RaceContestantItem.self)
         try? modelContainer.mainContext.delete(model: TickerItem.self)
         try? modelContainer.mainContext.delete(model: CSVDataItem.self)
+        try? modelContainer.mainContext.delete(model: RaceCarItem.self)
+        try? modelContainer.mainContext.delete(model: RaceCarDriverItem.self)
     }
 
 }

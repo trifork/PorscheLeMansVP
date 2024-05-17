@@ -11,6 +11,7 @@ public class NetworkClient {
     public static let shared = NetworkClient()
     
     public let baseURL = "https://query1.finance.yahoo.com"
+    public let wssURL = "wss://ws-feed.exchange.coinbase.com"
     
     private let httpClient: HTTPClient = HTTPClient()
     private var task: URLSessionDataTask?
