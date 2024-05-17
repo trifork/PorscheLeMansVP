@@ -99,16 +99,7 @@ import CoreLocation
                     carYPos = collision.position.y
                 }
             }
-            
-            // Set car position and orientation animated
-            let previousLapLocation: SIMD3<Float> = car.entity.transform.translation
-            let currentLapLocation: SIMD3<Float> = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
-            
-            if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
-                car.entity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
-            }
-                      
-            
+
             // Animate car
 //            var transform = modelEntity.transform
 //            transform.translation = SIMD3<Float>(trackCoordinate.x, carYPos, trackCoordinate.z)
@@ -117,13 +108,18 @@ import CoreLocation
 //            let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
 //            modelEntity.playAnimation(animationResource)
             
-            // Move car without animations
-            //car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
-            
             if let carInfo = car.entity.parent {
+                // Set car position and orientation animated
+                let previousLapLocation: SIMD3<Float> = carInfo.transform.translation
+                let currentLapLocation: SIMD3<Float> = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+                
+                if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
+                    car.entity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
+                }
+                
+                // Move car without animations
                 carInfo.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
             }
-            
         }
     }
     
