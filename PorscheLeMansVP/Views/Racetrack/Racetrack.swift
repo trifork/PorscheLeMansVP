@@ -42,14 +42,15 @@ import CoreLocation
     @MainActor
     public func updateCarPosition() {
         for car in carViewModel.cars {
+            let modelEntity = car.entity
             let referenceLocation = car.getReferenceLocation()
             let currentLocation = car.currentLocation
             let latitude = referenceLocation.latitude
             let longitude = referenceLocation.longitude
-       
-            // show or hide a car
-            car.entity.isEnabled = car.visible
             
+            // show or hide a car
+            modelEntity.isEnabled = car.visible
+   
             if currentLocation.index != car.currentIndex {
                 if currentLocation.index > 0 {
                     let currentGPSLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -103,7 +104,18 @@ import CoreLocation
             if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
                 car.entity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
             }
-            car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+                      
+            
+            // Animate car
+            var transform = modelEntity.transform
+            transform.translation = SIMD3<Float>(trackCoordinate.x, carYPos, trackCoordinate.z)
+            let animationDefinition = FromToByAnimation(to: transform, bindTarget: .transform)
+            let animationViewDefinition = AnimationView(source: animationDefinition, delay: 0, speed: 0.3)
+            let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
+            modelEntity.playAnimation(animationResource)
+            
+            // Move car without animations
+            // car.entity.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
         }
     }
     
