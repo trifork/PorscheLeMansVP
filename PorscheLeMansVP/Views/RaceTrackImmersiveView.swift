@@ -16,7 +16,7 @@ struct RaceTrackImmersiveView: View {
     @State private var didInitializedSceneEntity: Bool = false
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
     @State private var racetrack = Racetrack()
-    @State private var moveCarTimer = Timer.publish(every: 0.26, on: .main, in: .common).autoconnect()
+    @State private var moveCarTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     private var didAppear: () -> Void
     private var didTapClose: () -> Void
