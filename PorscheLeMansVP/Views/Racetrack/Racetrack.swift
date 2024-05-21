@@ -21,7 +21,7 @@ import CoreLocation
             trackContainer.addChild(trackEntity)
            
             // Get all cars
-            await carViewModel.setupMockData()
+            await carViewModel.setupCarkData()
             
             for car in carViewModel.cars {
                 let carInfoContainer = ModelEntity(mesh: MeshResource.generateBox(size:0))
@@ -99,26 +99,26 @@ import CoreLocation
                     carYPos = collision.position.y
                 }
             }
-
-            // Animate car
-//            var transform = modelEntity.transform
-//            transform.translation = SIMD3<Float>(trackCoordinate.x, carYPos, trackCoordinate.z)
-//            let animationDefinition = FromToByAnimation(to: transform, bindTarget: .transform)
-//            let animationViewDefinition = AnimationView(source: animationDefinition, delay: 0, speed: 0.3)
-//            let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
-//            modelEntity.playAnimation(animationResource)
             
-            if let carInfo = car.entity.parent {
+            if let carInfo = modelEntity.parent {
                 // Set car position and orientation animated
                 let previousLapLocation: SIMD3<Float> = carInfo.transform.translation
                 let currentLapLocation: SIMD3<Float> = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
                 
                 if let angle = carViewModel.calculateAngle(previous: previousLapLocation, current: currentLapLocation) {
-                    car.entity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
+                    modelEntity.transform.rotation = simd_quatf(angle: angle, axis: SIMD3<Float>(0,1,0))
                 }
                 
                 // Move car without animations
-                carInfo.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+                //carInfo.position = .init(x: trackCoordinate.x, y: carYPos, z: trackCoordinate.z)
+                
+                // Animate car
+                var transform = carInfo.transform
+                transform.translation = currentLapLocation
+                let animationDefinition = FromToByAnimation(to: transform, bindTarget: .transform)
+                let animationViewDefinition = AnimationView(source: animationDefinition, delay: 0, speed: 1.0)
+                let animationResource = try! AnimationResource.generate(with: animationViewDefinition)
+                carInfo.playAnimation(animationResource)
             }
         }
     }
@@ -141,7 +141,6 @@ import CoreLocation
     
     public func carInfoEntity(by id: String) -> Entity? {
         return carsContainer.children.first(where: { $0.name == "CarInfoContainer_\(id)" })
-    }
-    
+    }    
 }
 
