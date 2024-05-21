@@ -68,8 +68,8 @@ struct RaceTrackImmersiveView: View {
             }
             
             // Digital twins on carousel
-            if let carousel = try? await carousel.entity() {
-                mainContainer.addChild(carousel)
+            if let carouselItems = try? await carousel.entity() {
+                mainContainer.addChild(carouselItems)
             }
             
             if let dashboard = attachments.entity(for: "Dashboard") {
@@ -105,6 +105,8 @@ struct RaceTrackImmersiveView: View {
             Task {
                 didInitializedSceneEntity = true
                 
+                carousel.preSelectCar()
+                
                 for raceCar in DataClient.shared.getOwnCars() {
                     if let carInfo = attachments.entity(for: "CarInfo_\(raceCar.carId)") {
                         orientEntityTowardsCamera(entity: carInfo)
@@ -113,7 +115,7 @@ struct RaceTrackImmersiveView: View {
             }
         } attachments: {
             Attachment(id: "Dashboard") {
-                DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted)
+                DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted, selectedCarId: carousel.selectedCarId)
             }
             
             Attachment(id: "Toolbar") {
@@ -130,7 +132,7 @@ struct RaceTrackImmersiveView: View {
             
             ForEach(DataClient.shared.getOwnCars()) { raceCar in
                 Attachment(id: "CarInfo_\(raceCar.carId)") {
-                    CarInfoView(carId: raceCar.carId, dataChanged: dataChanged, selectedCarId: "6") // TODO: Send in selected car Id
+                    CarInfoView(carId: raceCar.carId, dataChanged: dataChanged, selectedCarId: carousel.selectedCarId) 
                 }
             }
         }
@@ -142,7 +144,7 @@ struct RaceTrackImmersiveView: View {
         .gesture(
             SpatialTapGesture().targetedToAnyEntity().onEnded({ value in
                 let name = value.entity.name
-                print("Load data for car name: ", name)
+                log(message: "Load data for car name: \(name)", level: .info)
                 carousel.selectCar(name: name)
             }))
         .gesture(

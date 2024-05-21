@@ -15,12 +15,13 @@ struct DashboardView: View {
     
     @State public var videoViewModel: VideoPlayerViewModel
     @Binding public var isMuted: Bool
+    public var selectedCarId: String
     
     var body: some View {
         LazyVGrid(columns: gridItemLayout) {
             VStack {
                 HStack {
-                    LeaderboardView()
+                    LeaderboardView(selectedCarId: selectedCarId)
                 }
                 .frame(width: 780, height: 1200)
                 .glassBackgroundEffect()

@@ -14,6 +14,8 @@ struct LeaderboardView: View {
     @State private var updateTimer = Timer.publish(every: 2.01, on: .main, in: .common).autoconnect()
     @State private var leaderboard: [RaceContestantItem] = []
     
+    public var selectedCarId: String
+    
     var body: some View {
         VStack {
             List(Array(leaderboard.enumerated()), id: \.1.index) { index, item in
@@ -55,7 +57,7 @@ struct LeaderboardView: View {
                         .foregroundColor(.white)
                 }
                 .frame(height: 54)
-                .listRowBackground(Color.clear)
+                .listRowBackground((selectedCarId == item.carId) ? Color.glassBlue : Color.clear)
             }
             .listRowSeparator(.hidden, edges: .all)
             .listRowBackground(Color.clear)

@@ -15,6 +15,8 @@ final class Carousel {
     private var carsPlatformIntialDegrees: Float = 135
     private var carsRotationHandler = RotatePlatformHandler()
 
+    public var selectedCarId: String = ""
+    
     @MainActor
     public func entity() async throws -> Entity {
         let carsInputComponent = InputTargetComponent(allowedInputTypes: .all)
@@ -38,7 +40,7 @@ final class Carousel {
             
             for raceCar in DataClient.shared.getOwnCars() {
                 let car = carEntity.clone(recursive: true)
-                car.name = raceCar.carId
+                car.name = "CarId_\(raceCar.carId)"
                 car.position = carsPosition[index]
                 
                 // Used for tap gesture
@@ -72,9 +74,20 @@ final class Carousel {
     }
     
     public func selectCar(name: String) {
+        selectedCarId = name
+        
         carsContainer.children.forEach { child in
-            let opacity: Float = child.name == name ? 1.0 : 0.3
+            let opacity: Float = child.name == "CarId_\(name)" ? 1.0 : 0.3
             child.components[OpacityComponent.self] = .init(opacity: opacity)
+        }
+    }
+    
+    public func preSelectCar() {
+        guard selectedCarId.isEmpty else { return }
+        
+        // Highlight first car
+        if let name = carsContainer.children.first(where: { $0.name.hasPrefix("CarId_") })?.name {
+            selectCar(name: name.replacingOccurrences(of: "CarId_", with: ""))
         }
     }
 }
