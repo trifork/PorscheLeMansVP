@@ -34,6 +34,19 @@ final class CarEntity {
     }
     
     @MainActor
+    public func porscheEntity() async throws -> Entity {
+        do {
+            let carEntity = try await Entity(named: "Porsche_963", in: realityKitContentBundle)
+            carEntity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: carEntity))
+            carEntity.transform.scale *= 0.5
+            return carEntity
+        } catch {
+            print("Error in RealityView's make: \(error)")
+            fatalError()
+        }
+    }
+        
+    @MainActor
     public func dotEntity(color: UIColor) -> Entity {
         let material = SimpleMaterial(color: color, isMetallic: false)
         let carEntity = ModelEntity(mesh: .generateSphere(radius: 0.03), materials: [material])

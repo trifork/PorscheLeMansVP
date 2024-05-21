@@ -8,8 +8,9 @@ import SwiftUI
     public var cars: [Car] = []
     
     @MainActor
-    public func setupMockData() async {
+    public func setupCarkData() async {
         var carIndex = 0
+        
         do {
             for ownCar in DataClient.shared.getOwnCars() {
                 let entity = try await carEntity.entity(trackViewModel: trackViewModel)
@@ -26,12 +27,6 @@ import SwiftUI
             addNewCar(index: carIndex, id: competitorCar.carId)
             carIndex = Int.random(in: 22...79)
         }
-        
-    
-        // Add more cars
-        // addNewCar(color: .cyan)
-        // addNewCar(color: .yellow)
-        // addNewCar(color: .orange)
     }
     
     @MainActor
