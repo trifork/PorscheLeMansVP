@@ -8,6 +8,10 @@
 import SwiftUI
 
 extension Color {
+    static let glassBlue = Color(red: 171 / 255, green: 192 / 255, blue: 211 / 255, opacity: 1.0)
+}
+
+extension Color {
     init(hex: String, alpha: Double = 1.0) {
         var hexString = hex
         

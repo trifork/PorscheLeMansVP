@@ -14,23 +14,25 @@ final class RaceContestantItem {
     var index: Int
     
     var position: Int
+    var carId: String
     var name: String
     var initials: String
     var color: String // hex
     var country: String
-    var carId: String
+    var carType: String
     var time: Double
     var inPit: Bool
     var outOfTheRace: Bool
     
-    init(index: Int, position: Int, name: String, initials: String, color: String, country: String, carId: String, time: Double, inPit: Bool, outOfTheRace: Bool) {
+    init(index: Int, carId: String, position: Int, name: String, initials: String, color: String, country: String, carType: String, time: Double, inPit: Bool, outOfTheRace: Bool) {
         self.index = index
+        self.carId = carId
         self.position = position
         self.name = name
         self.initials = initials
         self.color = color
         self.country = country
-        self.carId = carId
+        self.carType = carType
         self.time = time
         self.inPit = inPit
         self.outOfTheRace = outOfTheRace

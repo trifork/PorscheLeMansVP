@@ -15,7 +15,7 @@ extension NetworkClient {
         if let data = JSONParser<CarResponse>.read(file: "racecars") {
             do {
                 let parser = JSONParser<[CarResponse]>()
-                let model = try parser.parse(data: data)
+                let model: [CarResponse] = try parser.parse(data: data)
                 success(model)
             } catch let error {
                 log(message: "Failed! \(error.localizedDescription)", level: .error)

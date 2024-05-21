@@ -87,6 +87,7 @@
 		BB93435D2BF73D570081D78C /* WebSocketEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */; };
 		BB9343602BF73F600081D78C /* SocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB93435F2BF73F600081D78C /* SocketResponse.swift */; };
 		BB9343622BF765B70081D78C /* RaceTrackToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343612BF765B70081D78C /* RaceTrackToolbarView.swift */; };
+		BB9343652BFC714E0081D78C /* CarInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9343642BFC714E0081D78C /* CarInfoView.swift */; };
 		BB98C6342BF204B300C17681 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BB98C6332BF204B300C17681 /* RealityKitContent */; };
 		BB98C6362BF204B300C17681 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6352BF204B300C17681 /* AppMain.swift */; };
 		BB98C63A2BF204B300C17681 /* RaceTrackImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB98C6392BF204B300C17681 /* RaceTrackImmersiveView.swift */; };
@@ -183,6 +184,7 @@
 		BB93435C2BF73D570081D78C /* WebSocketEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndpoint.swift; sourceTree = "<group>"; };
 		BB93435F2BF73F600081D78C /* SocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketResponse.swift; sourceTree = "<group>"; };
 		BB9343612BF765B70081D78C /* RaceTrackToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceTrackToolbarView.swift; sourceTree = "<group>"; };
+		BB9343642BFC714E0081D78C /* CarInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoView.swift; sourceTree = "<group>"; };
 		BB98C62E2BF204B300C17681 /* PorscheLeMansVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorscheLeMansVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB98C6322BF204B300C17681 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BB98C6352BF204B300C17681 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		61CFF8D42BF61F4A00936B88 /* Racetrack */ = {
 			isa = PBXGroup;
 			children = (
+				BB9343632BFC71380081D78C /* CarInfo */,
 				61CFF8CE2BF61F4A00936B88 /* Car */,
 				61CFF8D22BF61F4A00936B88 /* Track */,
 				61CFF8D32BF61F4A00936B88 /* Racetrack.swift */,
@@ -463,6 +466,14 @@
 				BB93435F2BF73F600081D78C /* SocketResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BB9343632BFC71380081D78C /* CarInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BB9343642BFC714E0081D78C /* CarInfoView.swift */,
+			);
+			path = CarInfo;
 			sourceTree = "<group>";
 		};
 		BB98C6252BF204B300C17681 = {
@@ -704,6 +715,7 @@
 				BB9343252BF5D2AF0081D78C /* NetworkClient+Content.swift in Sources */,
 				BB9342A02BF4A26F0081D78C /* Date+String.swift in Sources */,
 				BB93428E2BF34C480081D78C /* TickerView.swift in Sources */,
+				BB9343652BFC714E0081D78C /* CarInfoView.swift in Sources */,
 				BB93434C2BF5FC3E0081D78C /* ChartDataPoint.swift in Sources */,
 				BB9343502BF61A7A0081D78C /* RotatePlatformHandler.swift in Sources */,
 				BB98C64E2BF205D000C17681 /* Platform.swift in Sources */,

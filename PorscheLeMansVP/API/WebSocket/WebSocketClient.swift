@@ -111,8 +111,7 @@ class WebSocketClient: ObservableObject {
             let parser = JSONParser<SocketResponse>()
             let socketResponse: SocketResponse = try parser.parse(data: data)
   
-            // Database<Object>(.employee).write(object: responseData)
-            
+            //DataClient.shared.write(socketResponse)
         } catch let error {
             log(message: "Error while parsing data received: \(error)", level: .error)
         }

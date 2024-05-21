@@ -142,6 +142,5 @@ import CoreLocation
     public func carInfoEntity(by id: String) -> Entity? {
         return carsContainer.children.first(where: { $0.name == "CarInfoContainer_\(id)" })
     }
-    
 }
 

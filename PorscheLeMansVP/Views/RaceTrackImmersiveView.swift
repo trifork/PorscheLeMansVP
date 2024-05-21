@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import ARKit
 
 struct RaceTrackImmersiveView: View {
     @Environment(\.scenePhase) var scenePhase
@@ -17,6 +18,11 @@ struct RaceTrackImmersiveView: View {
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
     @State private var racetrack = Racetrack()
     @State private var moveCarTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    
+    @State private var dataChanged: Bool = false
+    
+    private let worldTrackingProvider = WorldTrackingProvider()
+    private let arSession = ARKitSession()
     
     private var didAppear: () -> Void
     private var didTapClose: () -> Void
@@ -133,6 +139,12 @@ struct RaceTrackImmersiveView: View {
         } update: { _, attachments in
             Task {
                 didInitializedSceneEntity = true
+                
+                for raceCar in DataClient.shared.getOwnCars() {
+                    if let carInfo = attachments.entity(for: "CarInfo_\(raceCar.carId)") {
+                        orientEntityTowardsCamera(entity: carInfo)
+                    }
+                }
             }
         } attachments: {
             Attachment(id: "Dashboard") {
@@ -153,8 +165,13 @@ struct RaceTrackImmersiveView: View {
             
             ForEach(DataClient.shared.getOwnCars()) { raceCar in
                 Attachment(id: "CarInfo_\(raceCar.carId)") {
-                    Text("TODO: Missing Car Info")
+                    CarInfoView(carId: raceCar.carId, dataChanged: dataChanged, selectedCarId: "6") // TODO: Send in selected car Id
                 }
+            }
+        }
+        .task {
+            Task {
+                try await arSession.run([worldTrackingProvider])
             }
         }
         .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)
@@ -190,5 +207,19 @@ struct RaceTrackImmersiveView: View {
             default: break
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name.NSManagedObjectContextObjectsDidChange), perform: { notification in
+            dataChanged.toggle()
+        })
+    }
+}
+
+extension RaceTrackImmersiveView {
+    private func orientEntityTowardsCamera(entity: Entity) {
+        guard let pose = worldTrackingProvider.queryDeviceAnchor(atTimestamp: CACurrentMediaTime()) else { return }
+        let cameraTransform = Transform(matrix: pose.originFromAnchorTransform)
+        entity.look(at: cameraTransform.translation,
+                    from: entity.position(relativeTo: nil),
+                    relativeTo: nil,
+                    forward: .positiveZ)
     }
 }

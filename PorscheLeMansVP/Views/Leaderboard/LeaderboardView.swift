@@ -42,7 +42,7 @@ struct LeaderboardView: View {
                             .font(Asset.Fonts.porscheBold(size: 26))
                             .foregroundColor(.white)
                             .frame(alignment: .leading)
-                        Text(item.carId)
+                        Text(item.carType)
                             .font(Asset.Fonts.porscheRegular(size: 20))
                             .foregroundColor(.gray)
                             .frame(alignment: .leading)
