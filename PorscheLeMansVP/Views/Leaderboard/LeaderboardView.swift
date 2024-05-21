@@ -42,11 +42,11 @@ struct LeaderboardView: View {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(Asset.Fonts.porscheBold(size: 26))
-                            .foregroundColor(.white)
+                            .foregroundColor((selectedCarId == item.carId) ? .black : .white)
                             .frame(alignment: .leading)
                         Text(item.carType)
                             .font(Asset.Fonts.porscheRegular(size: 20))
-                            .foregroundColor(.gray)
+                            .foregroundColor((selectedCarId == item.carId) ? .black : .gray)
                             .frame(alignment: .leading)
                     }
                     
@@ -54,7 +54,7 @@ struct LeaderboardView: View {
                     
                     Text(item.position == 1 ? "Leader" : "+\(String(format: "%.4f", item.time))")
                         .font(Asset.Fonts.porscheBold(size: 26))
-                        .foregroundColor(.white)
+                        .foregroundColor((selectedCarId == item.carId) ? .black : .white)
                 }
                 .frame(height: 54)
                 .listRowBackground((selectedCarId == item.carId) ? Color.glassBlue : Color.clear)
