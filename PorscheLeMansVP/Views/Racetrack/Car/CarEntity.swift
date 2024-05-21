@@ -38,6 +38,7 @@ final class CarEntity {
         do {
             let carEntity = try await Entity(named: "Porsche_963", in: realityKitContentBundle)
             carEntity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: carEntity))
+            carEntity.transform.scale *= 0.5
             return carEntity
         } catch {
             print("Error in RealityView's make: \(error)")

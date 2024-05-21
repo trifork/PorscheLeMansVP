@@ -16,6 +16,7 @@ struct RaceTrackImmersiveView: View {
     @State private var didInitializedSceneEntity: Bool = false
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
     @State private var racetrack = Racetrack()
+    @State private var carousel = Carousel()
     @State private var moveCarTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     private var didAppear: () -> Void
@@ -30,15 +31,6 @@ struct RaceTrackImmersiveView: View {
     private let trackScale: Float = 1/8
     private let trackHorizontalPosition: Float = -0.64
     
-    private let platformHeight: Float = 0.005
-    private let platformRadius: Float = 0.40
-    private let platformContainerScale: Float = 1/11
-
-    private let carsContainer = Entity()
-    private let carsPlatform: ModelEntity
-    private var carsPlatformIntialDegrees: Float = 135
-    @State private var carsRotationHandler = RotatePlatformHandler()
-    
     @State private var isCompetitorsVisible: Bool = true
         
     init(didAppear: @escaping () -> Void, didTapClose: @escaping () -> Void, didEnterBackground: @escaping () -> Void, didLoadSceneEntity: @escaping () -> Void) {
@@ -48,9 +40,6 @@ struct RaceTrackImmersiveView: View {
         self.didTapClose = didTapClose
         self.didEnterBackground = didEnterBackground
         self.didLoadSceneEntity = didLoadSceneEntity
-        
-        self.carsPlatform = ModelEntity(mesh: .generateCylinder(height: platformHeight / platformContainerScale, radius: platformRadius / platformContainerScale), materials: [Materials.platformMaterial()])
-        self.carsPlatform.name = "carsPlatform"
         
         videoViewModel.configure(videoUrl: videoViewModel.selectedVideo)
         
@@ -63,42 +52,18 @@ struct RaceTrackImmersiveView: View {
         racetrackContainer.transform.rotation = simd_quatf(angle: trackRotation, axis: SIMD3<Float>(0,1,0))
         racetrackContainer.position = SIMD3(x: trackHorizontalPosition, y: 0.0, z: 0.0)
         mainContainer.addChild(racetrackContainer)
-        
-        // Cars Platform
-        let carsInputComponent = InputTargetComponent(allowedInputTypes: .all)
-        carsPlatform.generateCollisionShapes(recursive: true)
-        carsPlatform.components.set(carsInputComponent)
-        carsPlatform.position = [0.0, 0.0, 0.0]
-        carsContainer.addChild(carsPlatform)
-
-        carsContainer.scale *= platformContainerScale
-        carsContainer.position = [0.69, -0.01, -0.1]
-        mainContainer.addChild(carsContainer)
     }
     
     var body: some View {
         RealityView { content, attachments in
+            // Track with all cars
             if let track = try? await racetrack.entity() {
                 racetrackContainer.addChild(track)
             }
             
-            // Cars
-            if let carEntity = try? await Entity(named: "Porsche_963", in: realityKitContentBundle) {
-                
-                var xScalar: Float = -2.75
-                var zScalar: Float = 0.95
-                for raceCar in DataClient.shared.getOwnCars() {
-                    let car = carEntity.clone(recursive: true)
-                    car.name = "DigitalTwin_RaceCar_\(raceCar.carId)"
-                    car.position = [carEntity.position.x + xScalar, carEntity.position.y, carEntity.position.z + zScalar]
-                    carsContainer.addChild(car)
-                    
-                    xScalar += 2.75
-                    zScalar -= 0.95
-                }
-                
-                // Platform rotation
-                carsRotationHandler.configure(rotatingObject: carsContainer, platformSize: platformRadius, initialRotationDegrees: carsPlatformIntialDegrees)
+            // Digital twins on carousel
+            if let carousel = try? await carousel.entity() {
+                mainContainer.addChild(carousel)
             }
             
             if let dashboard = attachments.entity(for: "Dashboard") {
@@ -157,20 +122,25 @@ struct RaceTrackImmersiveView: View {
                 }
             }
         }
-        .gesture(DragGesture(minimumDistance: 5, coordinateSpace: .global)
+        .gesture(
+            SpatialTapGesture().targetedToAnyEntity().onEnded({ value in
+                let name = value.entity.name
+                print("Load data for car name: ", name)
+                carousel.selectCar(name: name)
+            }))
+        .gesture(
+            DragGesture(minimumDistance: 5, coordinateSpace: .global)
             .targetedToAnyEntity()
             .onChanged { value in
                 if value.entity.name == "carsPlatform" {
                     let pointsPerMeter = 1360.0 // Cannot get this from the value, but it can be seen in the debugger
-                    
-                    carsRotationHandler.updateRotation(startPosition: Float(value.startLocation.x), currentPosition: Float(value.location.x), pointsPerMeter: Float(pointsPerMeter))
+                    carousel.updateRotation(startPosition: Float(value.startLocation.x), currentPosition: Float(value.location.x), pointsPerMeter: Float(pointsPerMeter))
                 }
             }
             .onEnded { value in
-                if value.entity == carsPlatform {
-                    carsRotationHandler.rotationEnded()
+                if value.entity == carousel.carsPlatform {
+                    carousel.rotationEnded()
                 }
-                
             }
         )
         .onAppear() {
@@ -190,5 +160,14 @@ struct RaceTrackImmersiveView: View {
             default: break
             }
         }
+    }
+    
+    mutating func onChanged(value: EntityTargetValue<DragGesture.Value>) {
+        print("onChanged value", value)
+
+
+        // ...
+
+
     }
 }
