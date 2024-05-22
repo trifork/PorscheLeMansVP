@@ -6,16 +6,15 @@ import SwiftUI
 
 @Observable
 final class CarCarousel {
+    public var selectedCarId: String = ""
     public var carsPlatform: ModelEntity = ModelEntity()
-    private let carsContainer = Entity()
     
+    private let carsContainer = Entity()
     private let platformHeight: Float = 0.005
     private let platformRadius: Float = 0.40
     private let platformContainerScale: Float = 1/11
     private var carsPlatformIntialDegrees: Float = 135
     private var carsRotationHandler = RotatePlatformHandler()
-
-    public var selectedCarId: String = ""
     
     @MainActor
     public func entity() async throws -> Entity {
@@ -36,13 +35,14 @@ final class CarCarousel {
         do {
             // Add car
             let carEntity = try await CarEntity().porscheEntity()
+            let ownCars = DataClient.shared.getOwnCars()
             var index: Int = 0
             
-            for raceCar in DataClient.shared.getOwnCars() {
+            for raceCar in ownCars {
                 let car = carEntity.clone(recursive: true)
                 car.name = "CarId_\(raceCar.carId)"
-                car.position = carsPosition[index]
-                
+                car.position = index < ownCars.count ? carsPosition[index] : [0, 0, 0]
+
                 // Used for tap gesture
                 if let mainBody = car.findEntity(named: "Main_Body") {
                     mainBody.generateCollisionShapes(recursive: false)
@@ -77,8 +77,10 @@ final class CarCarousel {
         selectedCarId = name
         
         carsContainer.children.forEach { child in
-            let opacity: Float = child.name == "CarId_\(name)" ? 1.0 : 0.3
-            child.components[OpacityComponent.self] = .init(opacity: opacity)
+            if child.name != "carsPlatform" {
+                let opacity: Float = child.name == "CarId_\(name)" ? 1.0 : 0.3
+                child.components[OpacityComponent.self] = .init(opacity: opacity)
+            }
         }
     }
     
@@ -91,5 +93,3 @@ final class CarCarousel {
         }
     }
 }
-
-
