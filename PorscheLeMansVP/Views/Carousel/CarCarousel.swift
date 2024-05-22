@@ -5,7 +5,7 @@ import ARKit
 import SwiftUI
 
 @Observable
-final class Carousel {
+final class CarCarousel {
     public var carsPlatform: ModelEntity = ModelEntity()
     private let carsContainer = Entity()
     

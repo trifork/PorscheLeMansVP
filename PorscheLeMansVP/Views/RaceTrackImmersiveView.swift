@@ -17,7 +17,7 @@ struct RaceTrackImmersiveView: View {
     @State private var didInitializedSceneEntity: Bool = false
     @State private var videoViewModel = VideoPlayerViewModel(videoUrl: nil)
     @State private var racetrack = Racetrack()
-    @State private var carousel = Carousel()
+    @State private var carCarousel = CarCarousel()
     @State private var moveCarTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     @State private var dataChanged: Bool = false
@@ -68,7 +68,7 @@ struct RaceTrackImmersiveView: View {
             }
             
             // Digital twins on carousel
-            if let carouselItems = try? await carousel.entity() {
+            if let carouselItems = try? await carCarousel.entity() {
                 mainContainer.addChild(carouselItems)
             }
             
@@ -105,7 +105,7 @@ struct RaceTrackImmersiveView: View {
             Task {
                 didInitializedSceneEntity = true
                 
-                carousel.preSelectCar()
+                carCarousel.preSelectCar()
                 
                 for raceCar in DataClient.shared.getOwnCars() {
                     if let carInfo = attachments.entity(for: "CarInfo_\(raceCar.carId)") {
@@ -115,7 +115,7 @@ struct RaceTrackImmersiveView: View {
             }
         } attachments: {
             Attachment(id: "Dashboard") {
-                DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted, selectedCarId: carousel.selectedCarId)
+                DashboardView(videoViewModel: videoViewModel, isMuted: $isMuted, selectedCarId: carCarousel.selectedCarId)
             }
             
             Attachment(id: "Toolbar") {
@@ -132,7 +132,7 @@ struct RaceTrackImmersiveView: View {
             
             ForEach(DataClient.shared.getOwnCars()) { raceCar in
                 Attachment(id: "CarInfo_\(raceCar.carId)") {
-                    CarInfoView(carId: raceCar.carId, dataChanged: dataChanged, selectedCarId: carousel.selectedCarId) 
+                    CarInfoView(carId: raceCar.carId, dataChanged: dataChanged, selectedCarId: carCarousel.selectedCarId) 
                 }
             }
         }
@@ -145,7 +145,7 @@ struct RaceTrackImmersiveView: View {
             SpatialTapGesture().targetedToAnyEntity().onEnded({ value in
                 let name = value.entity.name
                 log(message: "Load data for car name: \(name)", level: .info)
-                carousel.selectCar(name: name)
+                carCarousel.selectCar(name: name)
             }))
         .gesture(
             DragGesture(minimumDistance: 5, coordinateSpace: .global)
@@ -153,12 +153,12 @@ struct RaceTrackImmersiveView: View {
             .onChanged { value in
                 if value.entity.name == "carsPlatform" {
                     let pointsPerMeter = 1360.0 // Cannot get this from the value, but it can be seen in the debugger
-                    carousel.updateRotation(startPosition: Float(value.startLocation.x), currentPosition: Float(value.location.x), pointsPerMeter: Float(pointsPerMeter))
+                    carCarousel.updateRotation(startPosition: Float(value.startLocation.x), currentPosition: Float(value.location.x), pointsPerMeter: Float(pointsPerMeter))
                 }
             }
             .onEnded { value in
-                if value.entity == carousel.carsPlatform {
-                    carousel.rotationEnded()
+                if value.entity == carCarousel.carsPlatform {
+                    carCarousel.rotationEnded()
                 }
             }
         )

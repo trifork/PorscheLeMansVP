@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		619C93DD2BFC95FB00F45383 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C93DB2BFC95FB00F45383 /* Carousel.swift */; };
+		619C93DD2BFC95FB00F45383 /* CarCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C93DB2BFC95FB00F45383 /* CarCarousel.swift */; };
 		61CFF8D52BF61F4A00936B88 /* CarEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8CB2BF61F4A00936B88 /* CarEntity.swift */; };
 		61CFF8D62BF61F4A00936B88 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8CC2BF61F4A00936B88 /* CarModel.swift */; };
 		61CFF8D72BF61F4A00936B88 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFF8CD2BF61F4A00936B88 /* CarViewModel.swift */; };
@@ -105,7 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		619C93DB2BFC95FB00F45383 /* Carousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		619C93DB2BFC95FB00F45383 /* CarCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCarousel.swift; sourceTree = "<group>"; };
 		61CFF8CB2BF61F4A00936B88 /* CarEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarEntity.swift; sourceTree = "<group>"; };
 		61CFF8CC2BF61F4A00936B88 /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		61CFF8CD2BF61F4A00936B88 /* CarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 		619C93DC2BFC95FB00F45383 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				619C93DB2BFC95FB00F45383 /* Carousel.swift */,
+				619C93DB2BFC95FB00F45383 /* CarCarousel.swift */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -708,7 +708,7 @@
 				61CFF8DD2BF61F5700936B88 /* LineEntity.swift in Sources */,
 				BB9343152BF52F9F0081D78C /* CarResponse.swift in Sources */,
 				BB9342762BF20F1B0081D78C /* Materials.swift in Sources */,
-				619C93DD2BFC95FB00F45383 /* Carousel.swift in Sources */,
+				619C93DD2BFC95FB00F45383 /* CarCarousel.swift in Sources */,
 				BB98C6572BF206B600C17681 /* RaceDataItem.swift in Sources */,
 				BB9343622BF765B70081D78C /* RaceTrackToolbarView.swift in Sources */,
 				BB9342742BF20CA40081D78C /* Assets.swift in Sources */,
